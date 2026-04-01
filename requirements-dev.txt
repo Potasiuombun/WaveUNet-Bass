@@ -1,0 +1,7 @@
+jupyter
+notebook
+ipykernel
+torchsummary
+pytest
+black
+ruff
