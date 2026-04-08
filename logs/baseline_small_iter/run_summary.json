@@ -1,0 +1,25 @@
+{
+  "batch_size": 16,
+  "checkpoint_dir": "checkpoints",
+  "config_path": "configs/baseline_small.yaml",
+  "config_snapshot": "logs/baseline_small_iter/config_snapshot.yaml",
+  "created_at": "2026-04-04T14:12:14.477301Z",
+  "csv_log": "logs/baseline_small_iter_metrics.csv",
+  "dataset_mode": "serialized",
+  "dataset_path": "/mnt/f/fma_small/datasets/waveunet_baseline_small.pkl",
+  "dataset_sidecar_summary": "/mnt/f/fma_small/datasets/waveunet_baseline_small.summary.json",
+  "device": "cuda",
+  "json_log": "logs/baseline_small_iter_metrics.jsonl",
+  "loss_weights": {
+    "l1": 1.0,
+    "mrstft": 1.0,
+    "nmse": 1.0
+  },
+  "model_name": "waveunet",
+  "num_epochs": 5,
+  "split_counts": {
+    "test": 1504,
+    "train": 12048,
+    "val": 1456
+  }
+}

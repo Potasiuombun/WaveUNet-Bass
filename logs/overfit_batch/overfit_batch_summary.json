@@ -1,0 +1,17 @@
+{
+  "timestamp_utc": "2026-04-04T14:08:14.854548+00:00",
+  "objective": "l1",
+  "steps": 2000,
+  "steps_executed": 219,
+  "batch_size": 4,
+  "device": "cuda",
+  "scheduler": "off",
+  "target_loss": 0.01,
+  "target_reached": true,
+  "target_reached_step": 219,
+  "start_loss": 0.902816891670227,
+  "best_loss": 0.009459647350013256,
+  "final_loss": 0.009459647350013256,
+  "relative_reduction_pct": 98.95220753651245,
+  "dataset_path": "/mnt/f/fma_small/datasets/waveunet_baseline_small.pkl"
+}

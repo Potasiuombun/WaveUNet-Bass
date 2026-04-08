@@ -5,7 +5,7 @@ import torch.nn.init as init
 from typing import Optional
 import math
 
-from .blocks import ConvBlock, DownBlock, UpBlock
+from .blocks import ConvBlock, DownBlock, UpBlock, SelfAttention1d
 
 
 class ResidualWaveUNet(nn.Module):
@@ -27,7 +27,12 @@ class ResidualWaveUNet(nn.Module):
         kernel_size: int = 9,
         activation: str = "leaky_relu",
         output_activation: Optional[str] = None,
-        max_scale: Optional[float] = 0.5
+        max_scale: Optional[float] = 0.5,
+        use_bottleneck_attention: bool = False,
+        attention_heads: int = 8,
+        attention_dropout: float = 0.0,
+        attention_layers: int = 1,
+        attention_mlp_ratio: float = 2.0,
     ):
         """Initialize Wave-U-Net.
         
@@ -48,6 +53,11 @@ class ResidualWaveUNet(nn.Module):
         self.activation = activation
         self.output_activation = output_activation
         self.max_scale = max_scale
+        self.use_bottleneck_attention = bool(use_bottleneck_attention)
+        self.attention_heads = int(attention_heads)
+        self.attention_dropout = float(attention_dropout)
+        self.attention_layers = int(attention_layers)
+        self.attention_mlp_ratio = float(attention_mlp_ratio)
         
         # Build encoder
         self.encoder = nn.ModuleList()
@@ -70,6 +80,22 @@ class ResidualWaveUNet(nn.Module):
             kernel_size=3,
             activation=activation
         )
+
+        self.bottleneck_attention = None
+        if self.use_bottleneck_attention:
+            if self.attention_layers < 1:
+                raise ValueError("attention_layers must be >= 1 when attention is enabled")
+            self.bottleneck_attention = nn.ModuleList(
+                [
+                    SelfAttention1d(
+                        channels=bottleneck_ch,
+                        num_heads=self.attention_heads,
+                        dropout=self.attention_dropout,
+                        mlp_ratio=self.attention_mlp_ratio,
+                    )
+                    for _ in range(self.attention_layers)
+                ]
+            )
         
         # Build decoder
         self.decoder = nn.ModuleList()
@@ -129,6 +155,9 @@ class ResidualWaveUNet(nn.Module):
         
         # Bottleneck
         enc = self.bottleneck(enc)
+        if self.bottleneck_attention is not None:
+            for attn_block in self.bottleneck_attention:
+                enc = attn_block(enc)
         
         # Decoder with skip connections
         for i, up_block in enumerate(self.decoder):
@@ -160,6 +189,11 @@ def create_waveunet(
     activation: str = "leaky_relu",
     output_activation: Optional[str] = None,
     max_scale: Optional[float] = None,
+    use_bottleneck_attention: bool = False,
+    attention_heads: int = 8,
+    attention_dropout: float = 0.0,
+    attention_layers: int = 1,
+    attention_mlp_ratio: float = 2.0,
     device: str = "cpu"
 ) -> ResidualWaveUNet:
     """Create and return a Wave-U-Net model.
@@ -182,7 +216,12 @@ def create_waveunet(
         kernel_size=kernel_size,
         activation=activation,
         output_activation=output_activation,
-        max_scale=max_scale
+        max_scale=max_scale,
+        use_bottleneck_attention=use_bottleneck_attention,
+        attention_heads=attention_heads,
+        attention_dropout=attention_dropout,
+        attention_layers=attention_layers,
+        attention_mlp_ratio=attention_mlp_ratio,
     )
     model = model.to(device)
     return model

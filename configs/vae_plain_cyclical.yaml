@@ -1,0 +1,84 @@
+# Stabilized plain (non-attention) VAE WaveUNet — cyclical KL annealing.
+#
+# Purpose: stabilize training of the plain VAE branch before any attention or
+# detectability work.  Key choices:
+#   - Cyclical KL annealing with conservative beta_max to reduce posterior collapse.
+#   - Free bits conservatively enabled (0.01 nats/dim) as a soft posterior floor.
+#   - Run-specific checkpoint_dir to avoid overwriting other runs.
+#
+# Usage:
+#   python scripts/train_vae.py --config configs/vae_plain_cyclical.yaml \
+#       --dataset-file /path/to/dataset.pkl
+
+experiment_name: vae_plain_cyclical
+seed: 42
+
+data:
+  # RICH format: 15,008 frames, 120 tracks, pre-assigned train/val/test splits.
+  dataset_file: /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl
+  frame_size: 1024
+  sr: 48000
+
+model:
+  name: vae_waveunet
+  type: vae_waveunet
+  in_channels: 1
+  out_channels: 1
+  depth: 5
+  base_channels: 32
+  kernel_size: 9
+  latent_channels: 64
+  # Attention is intentionally disabled for this plain-VAE stabilization run.
+  use_bottleneck_attention: false
+  output_head: identity
+
+loss:
+  alpha_reconstruction: 1.0
+  gamma_mrstft: 1.0
+  # Legacy fields kept for backward compat with normalize_config.
+  # The kl_schedule block below takes full precedence.
+  beta_kl: 5.0e-5
+  beta_kl_start: 0.0
+  beta_kl_end: 5.0e-5
+  kl_warmup_epochs: 0
+  l1_weight: 1.0
+  nmse_weight: 1.0
+  mrstft_fft_sizes: [1024, 512, 256]
+  mrstft_hop_sizes: [512, 256, 128]
+
+# Cyclical KL annealing (Fu et al., 2019).
+# 40 epochs / 4 cycles = 10 epochs per cycle.
+# First 50 % of each cycle (~5 epochs) is the linear ramp; the rest is plateau.
+# beta_max kept conservative (5e-5) to favour reconstruction quality.
+kl_schedule:
+  type: cyclical
+  beta_start: 0.0
+  beta_max: 5.0e-5
+  num_cycles: 4
+  cycle_ratio: 0.5
+
+# Free bits: conservative per-dimension floor prevents complete posterior collapse
+# without masking a genuine KL spike.  Disable by setting enabled: false.
+kl_free_bits:
+  enabled: true
+  value: 0.01   # 0.01 nats per latent dimension
+  mode: per_dim
+
+training:
+  batch_size: 16
+  num_workers: 2
+  legacy_num_workers: 0
+  num_epochs: 40
+  optimizer: adamw
+  lr: 3.0e-5
+  weight_decay: 1.0e-4
+  gradient_clip: 1.0
+  early_stopping_patience: 12
+  # Run-specific directory — will not overwrite stage3 or attention runs.
+  checkpoint_dir: checkpoints/vae_plain_cyclical
+  # Warm-start from stage-1 baseline if available; comment out if not present.
+  warm_start_checkpoint: checkpoints/best.pth
+
+logging:
+  csv_log: logs/vae_plain_cyclical/metrics.csv
+  json_log: logs/vae_plain_cyclical/metrics.jsonl

@@ -1,7 +1,6 @@
+# source_config: configs/baseline_small.yaml
 experiment_name: baseline_small_iter
-
 seed: 42
-
 data:
   source_type: serialized
   dataset_file: /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl
@@ -9,7 +8,6 @@ data:
   sr: 48000
   split_by: track_id
   normalization: none
-
 model:
   name: waveunet
   type: waveunet
@@ -21,22 +19,36 @@ model:
   dropout: 0.1
   residual: true
   output_head: identity
-
+  output_activation: null
+  activation: leaky_relu
 loss:
   l1_weight: 1.0
   nmse_weight: 1.0
   mrstft_weight: 1.0
-
 train:
   batch_size: 16
   epochs: 5
   optimizer: adamw
-  lr: 1.0e-4
-  weight_decay: 1.0e-4
+  lr: 0.0001
+  weight_decay: 0.0001
   grad_clip: 1.0
   early_stopping_patience: 5
-
 eval:
   save_audio_examples: false
   save_waveform_plots: true
   save_spectrogram_plots: false
+training:
+  batch_size: 16
+  epochs: 5
+  optimizer: adamw
+  lr: 0.0001
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  early_stopping_patience: 5
+  num_epochs: 5
+  gradient_clip: 1.0
+  num_workers: 2
+  checkpoint_dir: checkpoints
+logging:
+  csv_log: logs/baseline_small_iter_metrics.csv
+  json_log: logs/baseline_small_iter_metrics.jsonl

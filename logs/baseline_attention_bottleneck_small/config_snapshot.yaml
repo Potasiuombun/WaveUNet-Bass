@@ -1,0 +1,56 @@
+# source_config: configs/baseline_attention_bottleneck.yaml
+experiment_name: baseline_attention_bottleneck_small
+seed: 42
+data:
+  source_type: serialized
+  dataset_file: /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl
+  frame_size: 1024
+  sr: 48000
+  split_by: track_id
+  normalization: none
+model:
+  name: waveunet
+  type: waveunet
+  in_channels: 1
+  out_channels: 1
+  depth: 5
+  base_channels: 32
+  kernel_size: 9
+  residual: true
+  output_head: identity
+  use_bottleneck_attention: true
+  attention_heads: 8
+  attention_dropout: 0.0
+  output_activation: null
+  activation: leaky_relu
+loss:
+  l1_weight: 1.0
+  nmse_weight: 1.0
+  mrstft_weight: 1.0
+train:
+  batch_size: 16
+  epochs: 10
+  optimizer: adamw
+  lr: 0.0001
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  early_stopping_patience: 5
+eval:
+  save_audio_examples: false
+  save_waveform_plots: false
+  save_spectrogram_plots: false
+training:
+  batch_size: 16
+  epochs: 10
+  optimizer: adamw
+  lr: 0.0001
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  early_stopping_patience: 5
+  num_epochs: 10
+  gradient_clip: 1.0
+  num_workers: 2
+  checkpoint_dir: checkpoints
+logging:
+  csv_log: logs/baseline_attention_bottleneck_small_metrics.csv
+  json_log: logs/baseline_attention_bottleneck_small_metrics.jsonl

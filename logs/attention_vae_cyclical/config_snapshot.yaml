@@ -1,0 +1,64 @@
+# source_config: configs/attention_vae_stage3_cyclical.yaml
+experiment_name: attention_vae_cyclical
+seed: 42
+data:
+  dataset_file: /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl
+  frame_size: 1024
+  sr: 48000
+model:
+  name: attention_vae_waveunet
+  type: attention_vae_waveunet
+  in_channels: 1
+  out_channels: 1
+  depth: 5
+  base_channels: 32
+  kernel_size: 9
+  latent_channels: 64
+  output_head: identity
+  attention_heads: 8
+  attention_dropout: 0.1
+  attention_layers: 3
+  attention_mlp_ratio: 2.0
+  activation: leaky_relu
+  output_activation: null
+loss:
+  alpha_reconstruction: 1.0
+  gamma_mrstft: 1.0
+  beta_kl: 5.0e-05
+  beta_kl_start: 0.0
+  beta_kl_end: 5.0e-05
+  kl_warmup_epochs: 0
+  l1_weight: 1.0
+  nmse_weight: 1.0
+  mrstft_fft_sizes:
+  - 1024
+  - 512
+  - 256
+  mrstft_hop_sizes:
+  - 512
+  - 256
+  - 128
+kl_schedule:
+  type: cyclical
+  beta_start: 0.0
+  beta_max: 5.0e-05
+  num_cycles: 4
+  cycle_ratio: 0.5
+  warmup_epochs: 0
+kl_free_bits:
+  enabled: false
+  value: 0.0
+training:
+  batch_size: 16
+  num_workers: 2
+  num_epochs: 30
+  optimizer: adamw
+  lr: 3.0e-05
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  early_stopping_patience: 10
+  checkpoint_dir: checkpoints/attention_vae_cyclical
+  warm_start_checkpoint: checkpoints/mhsa_stage1/best.pth
+logging:
+  csv_log: logs/attention_vae_cyclical_metrics.csv
+  json_log: logs/attention_vae_cyclical_metrics.jsonl

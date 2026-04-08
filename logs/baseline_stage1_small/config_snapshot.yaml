@@ -1,0 +1,51 @@
+# source_config: configs/baseline_stage1.yaml
+experiment_name: baseline_stage1_small
+seed: 42
+data:
+  source_type: serialized
+  dataset_file: /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl
+  frame_size: 1024
+  sr: 48000
+model:
+  name: waveunet
+  type: waveunet
+  in_channels: 1
+  out_channels: 1
+  depth: 5
+  base_channels: 32
+  kernel_size: 9
+  output_head: identity
+  output_activation: null
+  activation: leaky_relu
+loss:
+  l1_weight: 1.0
+  nmse_weight: 1.0
+  mrstft_weight: 1.0
+train:
+  batch_size: 16
+  epochs: 10
+  optimizer: adamw
+  lr: 0.0001
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  early_stopping_patience: 5
+  checkpoint_dir: checkpoints/baseline_stage1
+eval:
+  save_audio_examples: false
+  save_waveform_plots: false
+  save_spectrogram_plots: false
+training:
+  batch_size: 16
+  epochs: 10
+  optimizer: adamw
+  lr: 0.0001
+  weight_decay: 0.0001
+  grad_clip: 1.0
+  early_stopping_patience: 5
+  checkpoint_dir: checkpoints/baseline_stage1
+  num_epochs: 10
+  gradient_clip: 1.0
+  num_workers: 2
+logging:
+  csv_log: logs/baseline_stage1_small_metrics.csv
+  json_log: logs/baseline_stage1_small_metrics.jsonl

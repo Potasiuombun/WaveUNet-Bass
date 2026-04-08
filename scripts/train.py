@@ -2,7 +2,10 @@
 """Training script for Wave-U-Net loudness enhancement baseline."""
 import argparse
 import sys
+import json
+from datetime import datetime
 from pathlib import Path
+from typing import Dict, Optional, Any
 import yaml
 import torch
 import torch.optim as optim
@@ -14,10 +17,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 from src.utils.seed import set_seed
 from src.data.dataset import create_dataloaders
 from src.data.serialized import load_serialized_dataset, get_dataset_info
-from src.models.waveunet import create_waveunet
+from src.models.factory import create_model
 from src.losses.combined import create_combined_loss
 from src.training.engine import Trainer
-from src.utils.logging import CSVLogger
 
 
 def load_config(config_path: str) -> dict:
@@ -109,6 +111,115 @@ def create_scheduler(optimizer, config: dict):
         return None
 
 
+def _resolve_device(requested_device: Optional[str]) -> str:
+    """Resolve runtime device with safe CUDA fallback.
+
+    If no device is specified, defaults to CUDA when available, else CPU.
+    """
+    if requested_device is None:
+        return "cuda" if torch.cuda.is_available() else "cpu"
+
+    requested = requested_device.lower()
+    if requested == "cuda" and not torch.cuda.is_available():
+        print("⚠️  CUDA requested but not available. Falling back to CPU.")
+        return "cpu"
+    if requested not in {"cuda", "cpu"}:
+        raise ValueError(f"Unsupported device '{requested_device}'. Use 'cuda' or 'cpu'.")
+    return requested
+
+
+def _split_frame_counts(dataloaders: Dict[str, DataLoader]) -> Dict[str, int]:
+    """Return number of frames per split from dataloader datasets."""
+    return {split: len(loader.dataset) for split, loader in dataloaders.items()}
+
+
+def _resolve_existing_path(path_str: Optional[str], config_path: str) -> Optional[str]:
+    """Resolve a path that may be relative to CWD or config directory."""
+    if not path_str:
+        return None
+
+    candidate = Path(path_str)
+    if candidate.is_absolute() and candidate.exists():
+        return str(candidate)
+
+    if candidate.exists():
+        return str(candidate.resolve())
+
+    config_dir = Path(config_path).resolve().parent
+    rel_to_config = config_dir / path_str
+    if rel_to_config.exists():
+        return str(rel_to_config.resolve())
+
+    return path_str
+
+
+def _write_json(path: Path, payload: Dict[str, Any]) -> None:
+    """Write JSON payload to disk with stable formatting."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w", encoding="utf-8") as handle:
+        json.dump(payload, handle, indent=2, sort_keys=True)
+
+
+def _write_latest_train_pointer(payload: Dict[str, Any]) -> Path:
+    """Write a pointer file to make the latest training artifacts obvious."""
+    pointer_path = Path("logs") / "LATEST_TRAIN.json"
+    _write_json(pointer_path, payload)
+    return pointer_path
+
+
+def _save_config_snapshot(config: Dict[str, Any], config_path: str, experiment_name: str) -> Path:
+    """Save a resolved config snapshot for reproducibility."""
+    snapshot_dir = Path("logs") / experiment_name
+    snapshot_path = snapshot_dir / "config_snapshot.yaml"
+    snapshot_dir.mkdir(parents=True, exist_ok=True)
+
+    with open(snapshot_path, "w", encoding="utf-8") as handle:
+        handle.write(f"# source_config: {config_path}\n")
+        yaml.safe_dump(config, handle, sort_keys=False)
+
+    return snapshot_path
+
+
+def _ensure_dataset_sidecar_summary(
+    dataset_file: Optional[str],
+    split_counts: Dict[str, int],
+    dataset_info: Optional[Dict[str, Any]],
+) -> Optional[Path]:
+    """Create dataset sidecar summary JSON if missing.
+
+    The summary is written next to the serialized dataset as:
+    <dataset_stem>.summary.json
+    """
+    if not dataset_file:
+        return None
+
+    dataset_path = Path(dataset_file)
+    sidecar_path = dataset_path.with_suffix(".summary.json")
+
+    if sidecar_path.exists():
+        return sidecar_path
+
+    payload: Dict[str, Any] = {
+        "dataset_path": str(dataset_path),
+        "created_at": datetime.utcnow().isoformat() + "Z",
+        "split_counts": split_counts,
+    }
+    if dataset_info is not None:
+        payload.update(
+            {
+                "format": "legacy" if dataset_info.get("is_legacy") else "rich",
+                "num_frames": dataset_info.get("num_frames"),
+                "num_unique_tracks": dataset_info.get("num_unique_tracks"),
+                "split_type": dataset_info.get("split_type"),
+                "columns": dataset_info.get("columns", []),
+            }
+        )
+
+    _write_json(sidecar_path, payload)
+    print(f"Dataset summary written: {sidecar_path}")
+    return sidecar_path
+
+
 def main():
     parser = argparse.ArgumentParser(description="Train Wave-U-Net baseline")
     parser.add_argument("--config", default="configs/baseline.yaml", help="Config file path")
@@ -135,25 +246,44 @@ def main():
     print(f"Loaded config from {args.config}")
     
     # Device
-    device = args.device or config.get("device", "cuda")
-    if device == "cuda" and not torch.cuda.is_available():
-        device = "cpu"
-    print(f"Using device: {device}")
+    device = _resolve_device(args.device)
     
     # Set seed
     seed = config.get("seed", 42)
     set_seed(seed)
     print(f"Set seed: {seed}")
     
+    # Resolve data mode
+    dataset_file = _resolve_existing_path(
+        args.dataset_file or config.get("data", {}).get("dataset_file"),
+        args.config,
+    )
+    data_root = _resolve_existing_path(
+        args.data_root or config.get("data", {}).get("data_dir"),
+        args.config,
+    )
+
+    data_mode = "serialized" if dataset_file else "raw"
+
+    print("\nStartup:")
+    print(f"  Config path: {args.config}")
+    print(f"  Dataset mode: {data_mode}")
+    print(f"  Dataset path: {dataset_file if dataset_file else '<none>'}")
+    print(f"  Data root: {data_root if data_root else '<none>'}")
+    print(f"  Device: {device}")
+    print(f"  Batch size: {config['training']['batch_size']}")
+
     # Create dataloaders
     print("\nCreating dataloaders...")
-    if args.dataset_file:
+    dataset_info: Optional[Dict[str, Any]] = None
+    if dataset_file:
         # Load from serialized dataset
-        print(f"Loading from serialized dataset: {args.dataset_file}")
+        print(f"Loading from serialized dataset: {dataset_file}")
         
         # Get dataset info
         try:
-            info = get_dataset_info(args.dataset_file)
+            info = get_dataset_info(dataset_file)
+            dataset_info = info
             print(f"\nDataset Info:")
             print(f"  Type: {'LEGACY (input/target only)' if info['is_legacy'] else 'RICH (with metadata)'}")
             print(f"  Total frames: {info['num_frames']}")
@@ -172,21 +302,21 @@ def main():
         # Load dataloaders
         dataloaders = {
             "train": load_serialized_dataset(
-                args.dataset_file,
+                dataset_file,
                 split="train",
                 batch_size=config["training"]["batch_size"],
                 num_workers=config["training"].get("num_workers", 2),
                 validate=True,
             ),
             "val": load_serialized_dataset(
-                args.dataset_file,
+                dataset_file,
                 split="val",
                 batch_size=config["training"]["batch_size"],
                 num_workers=config["training"].get("num_workers", 2),
                 validate=False,
             ),
             "test": load_serialized_dataset(
-                args.dataset_file,
+                dataset_file,
                 split="test",
                 batch_size=config["training"]["batch_size"],
                 num_workers=config["training"].get("num_workers", 2),
@@ -195,7 +325,10 @@ def main():
         }
     else:
         # Load from raw files
-        data_root = args.data_root or config["data"]["data_dir"]
+        if not data_root:
+            raise ValueError(
+                "Raw mode requires a data directory. Provide --data-root or set data.data_dir in config."
+            )
         print(f"Loading from raw files: {data_root}")
         dataloaders = create_dataloaders(
             data_dir=data_root,
@@ -210,22 +343,33 @@ def main():
             seed=seed,
             sr=config["data"]["sr"]
         )
+
+    split_counts = _split_frame_counts(dataloaders)
+    print("\nSplit frame counts:")
+    print(f"  train: {split_counts['train']}")
+    print(f"  val:   {split_counts['val']}")
+    print(f"  test:  {split_counts['test']}")
     
     print(f"Train batches: {len(dataloaders['train'])}")
     print(f"Val batches: {len(dataloaders['val'])}")
     print(f"Test batches: {len(dataloaders['test'])}")
+
+    experiment_name = str(config.get("experiment_name", "experiment"))
+    model_name = str(config.get("model", {}).get("type", config.get("model", {}).get("name", "waveunet")))
+    print(f"Model name: {model_name}")
+    print(
+        "Loss weights: "
+        f"l1={config['loss']['l1_weight']}, "
+        f"nmse={config['loss']['nmse_weight']}, "
+        f"mrstft={config['loss']['mrstft_weight']}"
+    )
+
+    config_snapshot_path = _save_config_snapshot(config, args.config, experiment_name)
+    dataset_sidecar_path = _ensure_dataset_sidecar_summary(dataset_file, split_counts, dataset_info)
     
     # Create model
     print("\nCreating model...")
-    model = create_waveunet(
-        depth=config["model"]["depth"],
-        base_channels=config["model"]["base_channels"],
-        kernel_size=config["model"]["kernel_size"],
-        activation=config["model"]["activation"],
-        output_activation=config["model"]["output_activation"],
-        max_scale=config["model"].get("max_scale"),
-        device=device
-    )
+    model = create_model(config["model"], device=device)
     
     total_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
     print(f"Total trainable parameters: {total_params:,}")
@@ -266,6 +410,43 @@ def main():
         csv_log_path=config["logging"].get("csv_log"),
         json_log_path=config["logging"].get("json_log")
     )
+
+    run_summary_path = Path("logs") / experiment_name / "run_summary.json"
+    run_summary = {
+        "created_at": datetime.utcnow().isoformat() + "Z",
+        "config_path": args.config,
+        "config_snapshot": str(config_snapshot_path),
+        "dataset_mode": data_mode,
+        "dataset_path": dataset_file,
+        "dataset_sidecar_summary": str(dataset_sidecar_path) if dataset_sidecar_path else None,
+        "device": device,
+        "batch_size": int(config["training"]["batch_size"]),
+        "split_counts": split_counts,
+        "model_name": model_name,
+        "loss_weights": {
+            "l1": float(config["loss"]["l1_weight"]),
+            "nmse": float(config["loss"]["nmse_weight"]),
+            "mrstft": float(config["loss"]["mrstft_weight"]),
+        },
+        "num_epochs": int(config["training"]["num_epochs"]),
+        "checkpoint_dir": config["training"].get("checkpoint_dir", "checkpoints"),
+        "csv_log": config["logging"].get("csv_log"),
+        "json_log": config["logging"].get("json_log"),
+    }
+    _write_json(run_summary_path, run_summary)
+    print(f"Run summary written: {run_summary_path}")
+
+    latest_pointer_path = _write_latest_train_pointer(
+        {
+            "created_at": run_summary["created_at"],
+            "experiment_name": experiment_name,
+            "run_summary": str(run_summary_path),
+            "config_snapshot": str(config_snapshot_path),
+            "csv_log": run_summary.get("csv_log"),
+            "json_log": run_summary.get("json_log"),
+        }
+    )
+    print(f"Latest train pointer: {latest_pointer_path}")
     
     print("\n✅ Training completed!")
 

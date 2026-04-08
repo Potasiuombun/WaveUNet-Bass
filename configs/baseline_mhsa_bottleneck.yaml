@@ -1,4 +1,4 @@
-experiment_name: baseline_small_iter
+experiment_name: baseline_mhsa_bottleneck_small
 
 seed: 42
 
@@ -18,9 +18,13 @@ model:
   depth: 5
   base_channels: 32
   kernel_size: 9
-  dropout: 0.1
   residual: true
   output_head: identity
+  use_bottleneck_attention: true
+  attention_heads: 8
+  attention_dropout: 0.1
+  attention_layers: 3
+  attention_mlp_ratio: 2.0
 
 loss:
   l1_weight: 1.0
@@ -29,14 +33,15 @@ loss:
 
 train:
   batch_size: 16
-  epochs: 5
+  epochs: 10
   optimizer: adamw
   lr: 1.0e-4
   weight_decay: 1.0e-4
   grad_clip: 1.0
   early_stopping_patience: 5
+  checkpoint_dir: checkpoints/mhsa_stage1
 
 eval:
   save_audio_examples: false
-  save_waveform_plots: true
+  save_waveform_plots: false
   save_spectrogram_plots: false

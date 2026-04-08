@@ -64,11 +64,70 @@ python scripts/train.py \
   --device cuda
 ```
 
+### 4b) Stage-1 representation training (small serialized set)
+
+```bash
+python scripts/train.py \
+  --config configs/baseline_small.yaml \
+  --dataset-file /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl \
+  --device cuda
+```
+
+Artifacts created by stage-1 runs include:
+
+- checkpoints (latest + best)
+- CSV/JSON training logs
+- config snapshot under `logs/<experiment_name>/config_snapshot.yaml`
+- run summary under `logs/<experiment_name>/run_summary.json`
+- dataset sidecar summary next to dataset (created if missing):
+  `<dataset_name>.summary.json`
+
 ### 5) Overfit run (NMSE-focused, batch size 64)
 
 ```bash
 python scripts/train.py \
   --config configs/overfit_nmse.yaml \
+  --dataset-file /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl \
+  --device cuda
+```
+
+### 6) Stage-2 detectability fine-tuning
+
+```bash
+python scripts/finetune_detectability.py \
+  --config configs/detectability_finetune.yaml \
+  --dataset-file /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl \
+  --checkpoint checkpoints/best.pth \
+  --device cuda
+```
+
+Stage-2 keeps reconstruction + MRSTFT active and adds optional detectability.
+Use `finetune.freeze_policy` to choose: `none`, `encoder`,
+`early_encoder_only`, or `discriminative_lr` (default).
+
+### 7) Stage-3 variational training (VAE WaveUNet)
+
+```bash
+python scripts/train_vae.py \
+  --config configs/vae_stage3.yaml \
+  --dataset-file /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl \
+  --device cuda
+```
+
+Stage-3 adds a variational bottleneck and optimizes:
+
+- reconstruction (L1 + NMSE)
+- MRSTFT
+- KL divergence (`beta_kl`)
+
+Use `training.warm_start_checkpoint` to initialize VAE weights from stage-1.
+`configs/vae_stage3.yaml` includes a KL warmup (`beta_kl_start -> beta_kl_end`).
+
+### 8) Regular WaveUNet with self-attention bottleneck
+
+```bash
+python scripts/train.py \
+  --config configs/baseline_attention_bottleneck.yaml \
   --dataset-file /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl \
   --device cuda
 ```

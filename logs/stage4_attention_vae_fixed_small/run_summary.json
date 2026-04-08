@@ -1,0 +1,13 @@
+{
+  "checkpoint_best": "checkpoints/stage4_attention_vae_fixed/best_stage3.pth",
+  "checkpoint_latest": "checkpoints/stage4_attention_vae_fixed/latest_stage3.pth",
+  "config_path": "configs/stage4_attention_vae.yaml",
+  "created_at": "2026-04-04T20:08:27.245293Z",
+  "csv_log": "logs/stage4_attention_vae_fixed_small_metrics.csv",
+  "dataset_path": "/mnt/f/fma_small/datasets/waveunet_baseline_small.pkl",
+  "device": "cuda",
+  "json_log": "logs/stage4_attention_vae_fixed_small_metrics.jsonl",
+  "loaded_checkpoint_epoch": 10,
+  "runtime_sec": 532.9680445194244,
+  "warm_start_checkpoint": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/mhsa_stage1/best.pth"
+}

@@ -137,3 +137,67 @@ class UpBlock(nn.Module):
         x = self.conv(x)
         return x
 
+
+class SelfAttention1d(nn.Module):
+    """Transformer-style self-attention block over temporal dimension."""
+
+    def __init__(
+        self,
+        channels: int,
+        num_heads: int = 8,
+        dropout: float = 0.0,
+        mlp_ratio: float = 2.0,
+    ):
+        """Initialize 1D self-attention block.
+
+        Args:
+            channels: Embedding dimension (channel count).
+            num_heads: Number of attention heads.
+            dropout: Dropout probability.
+            mlp_ratio: Expansion ratio for feed-forward hidden size.
+        """
+        super().__init__()
+        if channels % num_heads != 0:
+            raise ValueError("channels must be divisible by num_heads for SelfAttention1d")
+        if mlp_ratio <= 0:
+            raise ValueError("mlp_ratio must be > 0")
+
+        hidden_dim = int(channels * mlp_ratio)
+
+        self.norm1 = nn.LayerNorm(channels)
+        self.attn = nn.MultiheadAttention(
+            embed_dim=channels,
+            num_heads=num_heads,
+            dropout=dropout,
+            batch_first=True,
+        )
+        self.drop1 = nn.Dropout(dropout)
+
+        self.norm2 = nn.LayerNorm(channels)
+        self.ffn = nn.Sequential(
+            nn.Linear(channels, hidden_dim),
+            nn.GELU(),
+            nn.Dropout(dropout),
+            nn.Linear(hidden_dim, channels),
+        )
+        self.drop2 = nn.Dropout(dropout)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        """Apply MHSA + FFN residual block.
+
+        Args:
+            x: Tensor of shape [batch, channels, time].
+
+        Returns:
+            Tensor of shape [batch, channels, time].
+        """
+        x_t = x.transpose(1, 2)  # [B, T, C]
+
+        x_norm = self.norm1(x_t)
+        attn_out, _ = self.attn(x_norm, x_norm, x_norm, need_weights=False)
+        x_t = x_t + self.drop1(attn_out)
+
+        x_ffn = self.ffn(self.norm2(x_t))
+        x_t = x_t + self.drop2(x_ffn)
+        return x_t.transpose(1, 2)
+

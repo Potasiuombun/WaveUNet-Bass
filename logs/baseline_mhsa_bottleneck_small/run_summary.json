@@ -1,0 +1,25 @@
+{
+  "batch_size": 16,
+  "checkpoint_dir": "checkpoints/mhsa_stage1",
+  "config_path": "configs/baseline_mhsa_bottleneck.yaml",
+  "config_snapshot": "logs/baseline_mhsa_bottleneck_small/config_snapshot.yaml",
+  "created_at": "2026-04-04T18:52:26.691523Z",
+  "csv_log": "logs/baseline_mhsa_bottleneck_small_metrics.csv",
+  "dataset_mode": "serialized",
+  "dataset_path": "/mnt/f/fma_small/datasets/waveunet_baseline_small.pkl",
+  "dataset_sidecar_summary": "/mnt/f/fma_small/datasets/waveunet_baseline_small.summary.json",
+  "device": "cuda",
+  "json_log": "logs/baseline_mhsa_bottleneck_small_metrics.jsonl",
+  "loss_weights": {
+    "l1": 1.0,
+    "mrstft": 1.0,
+    "nmse": 1.0
+  },
+  "model_name": "waveunet",
+  "num_epochs": 10,
+  "split_counts": {
+    "test": 1504,
+    "train": 12048,
+    "val": 1456
+  }
+}

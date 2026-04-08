@@ -1,0 +1,7 @@
+{
+  "csv_log": "logs/overfit_batch/overfit_batch_log.csv",
+  "json_log": "logs/overfit_batch/overfit_batch_log.jsonl",
+  "plot": "logs/overfit_batch/overfit_batch_plot.png",
+  "summary_json": "logs/overfit_batch/overfit_batch_summary.json",
+  "timestamp_utc": "2026-04-04T14:08:14.854548+00:00"
+}

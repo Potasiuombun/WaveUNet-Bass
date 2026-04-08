@@ -1,5 +1,4 @@
-experiment_name: baseline_small_iter
-
+experiment_name: baseline_stage1_small
 seed: 42
 
 data:
@@ -7,8 +6,6 @@ data:
   dataset_file: /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl
   frame_size: 1024
   sr: 48000
-  split_by: track_id
-  normalization: none
 
 model:
   name: waveunet
@@ -18,8 +15,6 @@ model:
   depth: 5
   base_channels: 32
   kernel_size: 9
-  dropout: 0.1
-  residual: true
   output_head: identity
 
 loss:
@@ -29,14 +24,15 @@ loss:
 
 train:
   batch_size: 16
-  epochs: 5
+  epochs: 10
   optimizer: adamw
   lr: 1.0e-4
   weight_decay: 1.0e-4
   grad_clip: 1.0
   early_stopping_patience: 5
+  checkpoint_dir: checkpoints/baseline_stage1
 
 eval:
   save_audio_examples: false
-  save_waveform_plots: true
+  save_waveform_plots: false
   save_spectrogram_plots: false

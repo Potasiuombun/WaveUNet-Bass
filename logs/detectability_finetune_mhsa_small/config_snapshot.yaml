@@ -1,0 +1,56 @@
+experiment_name: detectability_finetune_mhsa_small
+seed: 42
+data:
+  dataset_file: /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl
+  frame_size: 1024
+  sr: 48000
+model:
+  name: waveunet
+  type: waveunet
+  in_channels: 1
+  out_channels: 1
+  depth: 5
+  base_channels: 32
+  kernel_size: 9
+  output_head: identity
+  use_bottleneck_attention: true
+  attention_heads: 8
+  attention_dropout: 0.1
+  attention_layers: 3
+  attention_mlp_ratio: 2.0
+  output_activation: null
+  activation: leaky_relu
+loss:
+  alpha_reconstruction: 1.0
+  gamma_mrstft: 1.0
+  beta_detectability: 0.02
+  delta_peak: 0.0
+  l1_weight: 1.0
+  nmse_weight: 1.0
+  peak_limit: 1.0
+  mrstft_fft_sizes:
+  - 1024
+  - 512
+  - 256
+  mrstft_hop_sizes:
+  - 512
+  - 256
+  - 128
+finetune:
+  checkpoint: checkpoints/mhsa_stage1/best.pth
+  freeze_policy: discriminative_lr
+  encoder_lr_scale: 0.2
+  decoder_lr_scale: 1.0
+  detectability_enabled: true
+  batch_size: 16
+  epochs: 10
+  optimizer: adamw
+  lr: 5.0e-05
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  early_stopping_patience: 5
+  early_stopping_monitor: val_total
+  save_dir: checkpoints/detectability_mhsa
+logging:
+  csv_log: logs/detectability_finetune_mhsa_small_metrics.csv
+  json_log: logs/detectability_finetune_mhsa_small_metrics.jsonl

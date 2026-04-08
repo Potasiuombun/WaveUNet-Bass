@@ -1,0 +1,21 @@
+{
+  "best_monitor_value": 3.3763912321873972,
+  "checkpoint_best": "checkpoints/detectability/best_stage2.pth",
+  "checkpoint_latest": "checkpoints/detectability/latest_stage2.pth",
+  "checkpoint_path": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/best.pth",
+  "config_path": "configs/detectability_finetune.yaml",
+  "created_at": "2026-04-04T17:23:55.637684Z",
+  "csv_log": "logs/detectability_finetune_small_metrics.csv",
+  "dataset_path": "/mnt/f/fma_small/datasets/waveunet_baseline_small.pkl",
+  "detectability_enabled": true,
+  "device": "cuda",
+  "freeze_policy": "discriminative_lr",
+  "json_log": "logs/detectability_finetune_small_metrics.jsonl",
+  "loaded_checkpoint_epoch": 8,
+  "monitor": "val_total",
+  "runtime_sec": 252.46875739097595,
+  "split_counts": {
+    "train": 12048,
+    "val": 1456
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "checkpoint_best": "checkpoints/attention_vae_cyclical/best_stage3.pth",
+  "checkpoint_latest": "checkpoints/attention_vae_cyclical/latest_stage3.pth",
+  "config_path": "configs/attention_vae_stage3_cyclical.yaml",
+  "config_snapshot": "logs/attention_vae_cyclical/config_snapshot.yaml",
+  "created_at": "2026-04-04T21:10:01.279115Z",
+  "csv_log": "logs/attention_vae_cyclical_metrics.csv",
+  "dataset_path": "/mnt/f/fma_small/datasets/waveunet_baseline_small.pkl",
+  "device": "cuda",
+  "json_log": "logs/attention_vae_cyclical_metrics.jsonl",
+  "kl_free_bits_enabled": false,
+  "kl_free_bits_value": 0.0,
+  "kl_schedule": {
+    "beta_max": 5e-05,
+    "beta_start": 0.0,
+    "cycle_ratio": 0.5,
+    "num_cycles": 4,
+    "type": "cyclical",
+    "warmup_epochs": 0
+  },
+  "loaded_checkpoint_epoch": 10,
+  "runtime_sec": 1095.3737320899963,
+  "warm_start_checkpoint": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/mhsa_stage1/best.pth"
+}

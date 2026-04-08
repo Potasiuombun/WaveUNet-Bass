@@ -1,0 +1,13 @@
+{
+  "checkpoint_best": "checkpoints/vae_stage3/best_stage3.pth",
+  "checkpoint_latest": "checkpoints/vae_stage3/latest_stage3.pth",
+  "config_path": "configs/vae_stage3.yaml",
+  "created_at": "2026-04-04T17:31:59.335517Z",
+  "csv_log": "logs/vae_stage3_small_metrics.csv",
+  "dataset_path": "/mnt/f/fma_small/datasets/waveunet_baseline_small.pkl",
+  "device": "cuda",
+  "json_log": "logs/vae_stage3_small_metrics.jsonl",
+  "loaded_checkpoint_epoch": 8,
+  "runtime_sec": 231.0179886817932,
+  "warm_start_checkpoint": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/best.pth"
+}

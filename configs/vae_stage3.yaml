@@ -1,0 +1,48 @@
+experiment_name: vae_stage3_warmup_small
+seed: 42
+
+data:
+  dataset_file: /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl
+  frame_size: 1024
+  sr: 48000
+
+model:
+  name: vae_waveunet
+  type: vae_waveunet
+  in_channels: 1
+  out_channels: 1
+  depth: 5
+  base_channels: 32
+  kernel_size: 9
+  latent_channels: 64
+  output_head: identity
+
+loss:
+  alpha_reconstruction: 1.0
+  gamma_mrstft: 1.0
+  beta_kl: 1.0e-4
+  beta_kl_start: 1.0e-6
+  beta_kl_end: 1.0e-4
+  kl_warmup_epochs: 5
+  l1_weight: 1.0
+  nmse_weight: 1.0
+  mrstft_fft_sizes: [1024, 512, 256]
+  mrstft_hop_sizes: [512, 256, 128]
+
+training:
+  batch_size: 16
+  num_workers: 2
+  num_epochs: 10
+  optimizer: adamw
+  lr: 5.0e-5
+  weight_decay: 1.0e-4
+  gradient_clip: 1.0
+  early_stopping_patience: 5
+  checkpoint_dir: checkpoints/vae_stage3
+
+  # Optional warm start from stage-1 checkpoint.
+  warm_start_checkpoint: checkpoints/best.pth
+
+logging:
+  csv_log: logs/vae_stage3_warmup_small_metrics.csv
+  json_log: logs/vae_stage3_warmup_small_metrics.jsonl

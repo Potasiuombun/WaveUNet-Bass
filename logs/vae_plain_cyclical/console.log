@@ -1,0 +1,18 @@
+Startup:
+  Config path: configs/vae_plain_cyclical.yaml
+  Dataset path: /home/tudor/Documents/MasterThesis/datasets/df.pkl
+  Device: cuda
+  Warm start checkpoint: /home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/best.pth
+  Dataset split type: row-level (deterministic) | frames=402114
+Loaded serialized dataset [LEGACY (no metadata)] (split=train): 402114 frames
+  ⚠️  Legacy format detected: no true track metadata exists.
+  Grouped train/val/test split not available.
+  Row-level deterministic splitting will be used if needed.
+Loaded serialized dataset [LEGACY (no metadata)] (split=val): 402114 frames
+  ⚠️  Legacy format detected: no true track metadata exists.
+  Grouped train/val/test split not available.
+  Row-level deterministic splitting will be used if needed.
+Warm-start missing keys: 6
+Warm-start unexpected keys: 6
+  KL schedule  : cyclical
+  Free bits    : enabled (value=0.01)
