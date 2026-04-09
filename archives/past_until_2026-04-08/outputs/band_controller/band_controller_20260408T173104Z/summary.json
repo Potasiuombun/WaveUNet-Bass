@@ -1,0 +1,10 @@
+{
+  "checkpoint_best": "outputs/band_controller/band_controller_20260408T173104Z/checkpoints/best.pth",
+  "checkpoint_latest": "outputs/band_controller/band_controller_20260408T173104Z/checkpoints/latest.pth",
+  "config_path": "configs/band_controller.yaml",
+  "created_at": "2026-04-08T18:58:35.869791Z",
+  "dataset_file": "/mnt/f/9thSemester/WaveUNet-Bass/WaveUNet-Bass/Data/df6.pkl",
+  "device": "cuda",
+  "run_dir": "outputs/band_controller/band_controller_20260408T173104Z",
+  "run_name": "band_controller_20260408T173104Z"
+}

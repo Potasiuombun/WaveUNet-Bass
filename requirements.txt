@@ -5,13 +5,9 @@ scikit-learn
 matplotlib
 torch
 torchaudio
-torchsummary
-jupyter
-notebook
-ipykernel
 tqdm
 pyyaml
 soundfile
 librosa
-auraloss
 tensorboard
+auraloss

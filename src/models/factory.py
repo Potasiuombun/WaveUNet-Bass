@@ -10,6 +10,9 @@ import torch.nn as nn
 
 from .waveunet import create_waveunet
 from .vae_waveunet import create_vae_waveunet
+from .tiny_residual import TinyResidualModel
+from .band_controller import BandController
+from .ddsp_controller import DDSPController
 
 
 def create_model(model_config: Dict[str, Any], device: str) -> nn.Module:
@@ -99,5 +102,37 @@ def create_model(model_config: Dict[str, Any], device: str) -> nn.Module:
             attention_mlp_ratio=float(model_config.get("attention_mlp_ratio", 2.0)),
             device=device,
         )
+
+    if model_name == "tiny_residual":
+        model = TinyResidualModel(
+            hidden_channels=int(model_config.get("hidden_channels", 16)),
+            num_layers=int(model_config.get("num_layers", 4)),
+            kernel_size=int(model_config.get("kernel_size", 7)),
+            activation=str(model_config.get("activation", "leaky_relu")),
+            max_residual=float(model_config.get("max_residual", 0.2)),
+        )
+        return model.to(device)
+
+    if model_name == "band_controller":
+        model = BandController(
+            num_bands=int(model_config.get("num_bands", 4)),
+            hidden_channels=int(model_config.get("hidden_channels", 16)),
+            min_gain_db=float(model_config.get("min_gain_db", -6.0)),
+            max_gain_db=float(model_config.get("max_gain_db", 6.0)),
+        )
+        return model.to(device)
+
+    if model_name == "ddsp_controller":
+        model = DDSPController(
+            num_bands=int(model_config.get("num_bands", 4)),
+            hidden_channels=int(model_config.get("hidden_channels", 16)),
+            min_gain_db=float(model_config.get("min_gain_db", -6.0)),
+            max_gain_db=float(model_config.get("max_gain_db", 6.0)),
+            max_tilt_db=float(model_config.get("max_tilt_db", 3.0)),
+            envelope_enabled=bool(model_config.get("envelope_enabled", True)),
+            min_envelope=float(model_config.get("min_envelope", 0.7)),
+            max_envelope=float(model_config.get("max_envelope", 1.3)),
+        )
+        return model.to(device)
 
     raise ValueError(f"Unknown model name '{model_name}'.")

@@ -1,0 +1,12 @@
+{
+  "best_epoch": 4,
+  "best_val_total": 0.022470927238219196,
+  "created_at": "2026-04-09T10:37:09.071711Z",
+  "last_val_detectability": 0.02247632145947365,
+  "last_val_nmse": 0.023006136019709324,
+  "metrics_csv": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/logs/stage2_detectability_ddsp_controller/metrics.csv",
+  "model": "ddsp_controller",
+  "stage1_checkpoint": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage1_ddsp_controller/stage1_ddsp_controller_fma_curated_cli_norm_20260409T100455Z/checkpoints/best.pth",
+  "stage2_best_checkpoint": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/stage2_detectability_ddsp_controller/best_stage2.pth",
+  "stage2_latest_checkpoint": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/stage2_detectability_ddsp_controller/latest_stage2.pth"
+}

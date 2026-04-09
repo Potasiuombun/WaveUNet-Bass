@@ -1,0 +1,10 @@
+{
+  "checkpoint_best": "outputs/stage1_ddsp_controller/stage1_ddsp_controller_fma_curated_cli_norm_20260409T100455Z/checkpoints/best.pth",
+  "checkpoint_latest": "outputs/stage1_ddsp_controller/stage1_ddsp_controller_fma_curated_cli_norm_20260409T100455Z/checkpoints/latest.pth",
+  "config_path": "configs/stage1_ddsp_controller_fma_curated_cli_norm.yaml",
+  "created_at": "2026-04-09T10:08:42.336921Z",
+  "dataset_file": "datasets/stage1_fma_curated_cli_norm.pkl",
+  "device": "cuda",
+  "run_dir": "outputs/stage1_ddsp_controller/stage1_ddsp_controller_fma_curated_cli_norm_20260409T100455Z",
+  "run_name": "stage1_ddsp_controller_fma_curated_cli_norm_20260409T100455Z"
+}

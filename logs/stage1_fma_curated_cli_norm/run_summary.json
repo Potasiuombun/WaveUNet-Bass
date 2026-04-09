@@ -1,0 +1,25 @@
+{
+  "batch_size": 16,
+  "checkpoint_dir": "checkpoints/stage1_fma_curated_cli_norm",
+  "config_path": "configs/stage1_fma_curated_cli_norm.yaml",
+  "config_snapshot": "logs/stage1_fma_curated_cli_norm/config_snapshot.yaml",
+  "created_at": "2026-04-09T09:20:42.163532Z",
+  "csv_log": "logs/stage1_fma_curated_cli_norm_metrics.csv",
+  "dataset_mode": "serialized",
+  "dataset_path": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/datasets/stage1_fma_curated_cli_norm.pkl",
+  "dataset_sidecar_summary": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/datasets/stage1_fma_curated_cli_norm.summary.json",
+  "device": "cuda",
+  "json_log": "logs/stage1_fma_curated_cli_norm_metrics.jsonl",
+  "loss_weights": {
+    "l1": 1.0,
+    "mrstft": 1.0,
+    "nmse": 1.0
+  },
+  "model_name": "waveunet",
+  "num_epochs": 8,
+  "split_counts": {
+    "test": 2560,
+    "train": 19200,
+    "val": 1920
+  }
+}

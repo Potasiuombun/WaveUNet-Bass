@@ -1,0 +1,6 @@
+model,best_val_total,last_val_detectability,last_val_nmse,best_epoch,stage2_best_checkpoint
+band_controller,0.02225320009664166,0.022376983733095192,0.023025387499607555,2,/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/stage2_detectability_band_controller/best_stage2.pth
+ddsp_controller,0.022470927238219196,0.02247632145947365,0.023006136019709324,4,/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/stage2_detectability_ddsp_controller/best_stage2.pth
+waveunet,0.04638673411838324,0.04638673411838324,4.687419747521441e-05,5,/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/stage2_detectability_waveunet/best_stage2.pth
+vae_waveunet,0.0469848963151728,0.07589081277253214,4.936088802575493e-05,4,/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/stage2_detectability_vae_waveunet/best_stage2.pth
+dsp_tiny_residual,21.816438897445078,24.133685421719278,0.12340243035287131,1,/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/stage2_detectability_dsp_tiny_residual/best_stage2.pth

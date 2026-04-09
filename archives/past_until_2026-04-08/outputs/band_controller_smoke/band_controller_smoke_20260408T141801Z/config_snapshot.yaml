@@ -1,0 +1,38 @@
+# source_config: configs/band_controller_smoke.yaml
+experiment_name: band_controller_smoke
+seed: 42
+data:
+  dataset_file: /mnt/f/9thSemester/WaveUNet-Bass/WaveUNet-Bass/Data/df6.pkl
+  sample_rate: 44100
+dsp:
+  bands_hz:
+  - - 20
+    - 180
+  - - 180
+    - 1200
+  - - 1200
+    - 6000
+  - - 6000
+    - 22050
+  peak_limit: 0.99
+model:
+  hidden_channels: 8
+  min_gain_db: -6.0
+  max_gain_db: 6.0
+loss:
+  l1_weight: 1.0
+  nmse_weight: 1.0
+training:
+  split_train: train
+  split_val: val
+  batch_size: 2
+  num_workers: 0
+  num_epochs: 1
+  max_train_batches: 1
+  max_val_batches: 1
+  lr: 0.0001
+  weight_decay: 1.0e-05
+  gradient_clip: 1.0
+  early_stopping_patience: 2
+  device: cuda
+  output_root: outputs/band_controller_smoke

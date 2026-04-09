@@ -1,0 +1,42 @@
+experiment_name: stage1_vae_fma_curated_cli_norm
+seed: 42
+
+data:
+  source_type: serialized
+  dataset_file: datasets/stage1_fma_curated_cli_norm.pkl
+  frame_size: 1024
+  sr: 44100
+
+model:
+  name: vae_waveunet
+  type: vae_waveunet
+  depth: 5
+  base_channels: 32
+  kernel_size: 9
+  latent_channels: 64
+  output_head: identity
+
+loss:
+  alpha_reconstruction: 1.0
+  gamma_mrstft: 1.0
+  l1_weight: 1.0
+  nmse_weight: 1.0
+  beta_kl: 1.0e-4
+  beta_kl_start: 0.0
+  beta_kl_end: 1.0e-4
+  kl_warmup_epochs: 4
+
+training:
+  batch_size: 16
+  num_workers: 2
+  num_epochs: 8
+  optimizer: adamw
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  gradient_clip: 1.0
+  early_stopping_patience: 4
+  checkpoint_dir: checkpoints/stage1_vae_fma_curated_cli_norm
+
+logging:
+  csv_log: logs/stage1_vae_fma_curated_cli_norm_metrics.csv
+  json_log: logs/stage1_vae_fma_curated_cli_norm_metrics.jsonl

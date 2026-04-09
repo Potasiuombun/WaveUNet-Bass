@@ -1,0 +1,1252 @@
+[
+  {
+    "track_id": "000148",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.1823468752607733e-35,
+    "mae_vs_admm": 1.0218217036830103e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -10.20867919921875,
+    "detectability_vs_admm": 2.1339728649588745e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000148",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -10.20867919921875,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000148",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.1251038759946823,
+    "mae_vs_admm": 0.09214191138744354,
+    "output_peak": 0.4524098038673401,
+    "output_rms_db": -14.0,
+    "detectability_vs_admm": 37.25351052807299,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000148",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.15118169784545898,
+    "mae_vs_admm": 0.08207360655069351,
+    "output_peak": 0.9254000782966614,
+    "output_rms_db": -10.819411277770996,
+    "detectability_vs_admm": 33.13587684459628,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000148",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03653651103377342,
+    "mae_vs_admm": 0.046151090413331985,
+    "output_peak": 0.6945889592170715,
+    "output_rms_db": -11.681670188903809,
+    "detectability_vs_admm": 29.87980181512133,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000197",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.5170729094603766e-35,
+    "mae_vs_admm": 1.1605270484904386e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.496883392333984,
+    "detectability_vs_admm": 2.5145101793981104e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000197",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.496883392333984,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000197",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.12872694432735443,
+    "mae_vs_admm": 0.10154002159833908,
+    "output_peak": 0.44885021448135376,
+    "output_rms_db": -13.356815338134766,
+    "detectability_vs_admm": 38.94278624349949,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000197",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.1468713879585266,
+    "mae_vs_admm": 0.08854418992996216,
+    "output_peak": 0.9791092276573181,
+    "output_rms_db": -10.050736427307129,
+    "detectability_vs_admm": 34.6321221427155,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000197",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03754609450697899,
+    "mae_vs_admm": 0.0510990172624588,
+    "output_peak": 0.719444990158081,
+    "output_rms_db": -10.987676620483398,
+    "detectability_vs_admm": 34.159463866699205,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000211",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.2156857432394536e-35,
+    "mae_vs_admm": 9.660310370850795e-21,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -10.005548477172852,
+    "detectability_vs_admm": 2.214300455812527e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000211",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -10.005548477172852,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000211",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.12943503260612488,
+    "mae_vs_admm": 0.09593864530324936,
+    "output_peak": 0.44816040992736816,
+    "output_rms_db": -13.878837585449219,
+    "detectability_vs_admm": 39.277635027763715,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000211",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.10891582816839218,
+    "mae_vs_admm": 0.07192175835371017,
+    "output_peak": 0.8629908561706543,
+    "output_rms_db": -10.555692672729492,
+    "detectability_vs_admm": 30.383156180838245,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000211",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.036406684666872025,
+    "mae_vs_admm": 0.04730873182415962,
+    "output_peak": 0.7047435641288757,
+    "output_rms_db": -11.479195594787598,
+    "detectability_vs_admm": 31.481277038198723,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000438",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.2304012335550697e-35,
+    "mae_vs_admm": 1.1330419531544469e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.485220909118652,
+    "detectability_vs_admm": 2.0494207535975832e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000438",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.485220909118652,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000438",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.132735475897789,
+    "mae_vs_admm": 0.10327956825494766,
+    "output_peak": 0.4449698328971863,
+    "output_rms_db": -13.420570373535156,
+    "detectability_vs_admm": 40.85886264618968,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000438",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.12699081003665924,
+    "mae_vs_admm": 0.08369382470846176,
+    "output_peak": 0.9794098138809204,
+    "output_rms_db": -9.970243453979492,
+    "detectability_vs_admm": 31.63547575736665,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000438",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03727773204445839,
+    "mae_vs_admm": 0.05105728656053543,
+    "output_peak": 0.7284966111183167,
+    "output_rms_db": -10.974899291992188,
+    "detectability_vs_admm": 33.57049940604372,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000643",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.0134977015458025e-35,
+    "mae_vs_admm": 9.340006489065943e-21,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.81481647491455,
+    "detectability_vs_admm": 1.8086023083108447e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000643",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.81481647491455,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000643",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.13405202329158783,
+    "mae_vs_admm": 0.0998140498995781,
+    "output_peak": 0.4437081515789032,
+    "output_rms_db": -13.77482795715332,
+    "detectability_vs_admm": 41.4991319963901,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000643",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.11026953905820847,
+    "mae_vs_admm": 0.07508344948291779,
+    "output_peak": 0.9563050270080566,
+    "output_rms_db": -10.311699867248535,
+    "detectability_vs_admm": 29.732150864955027,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000643",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03651868551969528,
+    "mae_vs_admm": 0.048547618091106415,
+    "output_peak": 0.6845089793205261,
+    "output_rms_db": -11.291570663452148,
+    "detectability_vs_admm": 31.466693245001903,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000675",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.677453558992916e-35,
+    "mae_vs_admm": 1.271894962625913e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.928955078125,
+    "detectability_vs_admm": 2.59609516978402e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000675",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.928955078125,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000675",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.13464221358299255,
+    "mae_vs_admm": 0.09863609075546265,
+    "output_peak": 0.44314461946487427,
+    "output_rms_db": -13.900007247924805,
+    "detectability_vs_admm": 41.78791815505281,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000675",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.20239055156707764,
+    "mae_vs_admm": 0.09756749123334885,
+    "output_peak": 1.0323641300201416,
+    "output_rms_db": -10.511348724365234,
+    "detectability_vs_admm": 37.628352386750805,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "000675",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03703365847468376,
+    "mae_vs_admm": 0.04789525642991066,
+    "output_peak": 0.698755145072937,
+    "output_rms_db": -11.402605056762695,
+    "detectability_vs_admm": 31.49367055383439,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001282",
+    "method": "input_reference",
+    "nmse_vs_admm": 1.9627583029325868e-35,
+    "mae_vs_admm": 9.188387675517954e-21,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.795561790466309,
+    "detectability_vs_admm": 1.8524163136094436e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001282",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.795561790466309,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001282",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.13587677478790283,
+    "mae_vs_admm": 0.10085634142160416,
+    "output_peak": 0.44196972250938416,
+    "output_rms_db": -13.789671897888184,
+    "detectability_vs_admm": 42.39558206615291,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001282",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.16765005886554718,
+    "mae_vs_admm": 0.09102221578359604,
+    "output_peak": 1.012671947479248,
+    "output_rms_db": -10.391828536987305,
+    "detectability_vs_admm": 33.97563691978331,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001282",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.037557847797870636,
+    "mae_vs_admm": 0.04926056042313576,
+    "output_peak": 0.6907393932342529,
+    "output_rms_db": -11.286297798156738,
+    "detectability_vs_admm": 32.92119768373803,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001310",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.1756430275342027e-35,
+    "mae_vs_admm": 9.934341413740262e-21,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.77283763885498,
+    "detectability_vs_admm": 2.0915936491768363e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001310",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.77283763885498,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001310",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.13711188733577728,
+    "mae_vs_admm": 0.10148021578788757,
+    "output_peak": 0.44079962372779846,
+    "output_rms_db": -13.789973258972168,
+    "detectability_vs_admm": 43.00837830938511,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001310",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.14466319978237152,
+    "mae_vs_admm": 0.08512049913406372,
+    "output_peak": 0.9215214252471924,
+    "output_rms_db": -10.402597427368164,
+    "detectability_vs_admm": 33.53952193163436,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001310",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.037351496517658234,
+    "mae_vs_admm": 0.049332600086927414,
+    "output_peak": 0.7107750177383423,
+    "output_rms_db": -11.261592864990234,
+    "detectability_vs_admm": 33.457757892947015,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001522",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.0979171944031104e-35,
+    "mae_vs_admm": 1.0285494124053227e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.63871955871582,
+    "detectability_vs_admm": 2.0828017097322343e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001522",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.63871955871582,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001522",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.13892947137355804,
+    "mae_vs_admm": 0.10376522690057755,
+    "output_peak": 0.43908727169036865,
+    "output_rms_db": -13.689661979675293,
+    "detectability_vs_admm": 43.919070219303414,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001522",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.13224321603775024,
+    "mae_vs_admm": 0.08362177759408951,
+    "output_peak": 0.9818602800369263,
+    "output_rms_db": -10.246103286743164,
+    "detectability_vs_admm": 30.64323579052223,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001522",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03728111833333969,
+    "mae_vs_admm": 0.050145506858825684,
+    "output_peak": 0.6862073540687561,
+    "output_rms_db": -11.125007629394531,
+    "detectability_vs_admm": 34.42086340159427,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001626",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.469579895636346e-35,
+    "mae_vs_admm": 1.1230980951246944e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.87059211730957,
+    "detectability_vs_admm": 2.2953746376931325e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001626",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.87059211730957,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001626",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.1393502950668335,
+    "mae_vs_admm": 0.10110562294721603,
+    "output_peak": 0.4386923909187317,
+    "output_rms_db": -13.929349899291992,
+    "detectability_vs_admm": 44.13144531668876,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001626",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.11879266053438187,
+    "mae_vs_admm": 0.07730473577976227,
+    "output_peak": 0.8678484559059143,
+    "output_rms_db": -10.447860717773438,
+    "detectability_vs_admm": 30.089518629647028,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001626",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.036775778979063034,
+    "mae_vs_admm": 0.0484023317694664,
+    "output_peak": 0.6858768463134766,
+    "output_rms_db": -11.349596977233887,
+    "detectability_vs_admm": 32.34307893349473,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001694",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.969958797805734e-35,
+    "mae_vs_admm": 1.2379611704656321e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.633338928222656,
+    "detectability_vs_admm": 2.666701842115336e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001694",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.633338928222656,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001694",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.1409846395254135,
+    "mae_vs_admm": 0.1045859307050705,
+    "output_peak": 0.4371645450592041,
+    "output_rms_db": -13.722400665283203,
+    "detectability_vs_admm": 44.96166259338619,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001694",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.13076932728290558,
+    "mae_vs_admm": 0.08408627659082413,
+    "output_peak": 0.9068836569786072,
+    "output_rms_db": -10.176545143127441,
+    "detectability_vs_admm": 29.236963023154807,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "001694",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.0370899960398674,
+    "mae_vs_admm": 0.0500931441783905,
+    "output_peak": 0.6923714876174927,
+    "output_rms_db": -11.118415832519531,
+    "detectability_vs_admm": 33.15587920515758,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003354",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.936634566109254e-35,
+    "mae_vs_admm": 1.1855179196297702e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.80736255645752,
+    "detectability_vs_admm": 3.0064706349783427e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003354",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.80736255645752,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003354",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.14154110848903656,
+    "mae_vs_admm": 0.1027536690235138,
+    "output_peak": 0.43664634227752686,
+    "output_rms_db": -13.90672779083252,
+    "detectability_vs_admm": 45.2463330208038,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003354",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.2059648483991623,
+    "mae_vs_admm": 0.10002956539392471,
+    "output_peak": 1.013067364692688,
+    "output_rms_db": -10.418556213378906,
+    "detectability_vs_admm": 37.789123242775226,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003354",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03719574958086014,
+    "mae_vs_admm": 0.04878431186079979,
+    "output_peak": 0.7101399898529053,
+    "output_rms_db": -11.282548904418945,
+    "detectability_vs_admm": 32.669807643325996,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003536",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.3276192942386584e-35,
+    "mae_vs_admm": 1.1617249255708633e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.52367115020752,
+    "detectability_vs_admm": 2.26226016466687e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003536",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.52367115020752,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003536",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.14354157447814941,
+    "mae_vs_admm": 0.1070178747177124,
+    "output_peak": 0.43479183316230774,
+    "output_rms_db": -13.660005569458008,
+    "detectability_vs_admm": 46.27808613108372,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003536",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.18063493072986603,
+    "mae_vs_admm": 0.09786428511142731,
+    "output_peak": 1.020760178565979,
+    "output_rms_db": -10.135055541992188,
+    "detectability_vs_admm": 34.1676365644851,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003536",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.038154877722263336,
+    "mae_vs_admm": 0.05139856040477753,
+    "output_peak": 0.6994484066963196,
+    "output_rms_db": -11.02431869506836,
+    "detectability_vs_admm": 35.07732151662024,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003613",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.749786639598056e-35,
+    "mae_vs_admm": 1.1385553865869256e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -10.002412796020508,
+    "detectability_vs_admm": 2.8341658123580066e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003613",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -10.002412796020508,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003613",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.1427847295999527,
+    "mae_vs_admm": 0.10077297687530518,
+    "output_peak": 0.4354919493198395,
+    "output_rms_db": -14.124771118164062,
+    "detectability_vs_admm": 45.88617843479035,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003613",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.13806569576263428,
+    "mae_vs_admm": 0.08131977170705795,
+    "output_peak": 0.9064947366714478,
+    "output_rms_db": -10.683178901672363,
+    "detectability_vs_admm": 32.29104079326961,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003613",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03715202584862709,
+    "mae_vs_admm": 0.04785814881324768,
+    "output_peak": 0.6934201121330261,
+    "output_rms_db": -11.484598159790039,
+    "detectability_vs_admm": 33.071444819680366,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003707",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.711184162759895e-35,
+    "mae_vs_admm": 1.2076701233954957e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.656929016113281,
+    "detectability_vs_admm": 2.5345457876314555e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003707",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.656929016113281,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003707",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.14396679401397705,
+    "mae_vs_admm": 0.10539285093545914,
+    "output_peak": 0.434399276971817,
+    "output_rms_db": -13.801107406616211,
+    "detectability_vs_admm": 46.49910156153936,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003707",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.13922247290611267,
+    "mae_vs_admm": 0.08597943931818008,
+    "output_peak": 0.8964614868164062,
+    "output_rms_db": -10.333436965942383,
+    "detectability_vs_admm": 30.121272827080865,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003707",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03747085854411125,
+    "mae_vs_admm": 0.05020662397146225,
+    "output_peak": 0.6950529217720032,
+    "output_rms_db": -11.142439842224121,
+    "detectability_vs_admm": 35.44904263429603,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003831",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.4298644873791207e-35,
+    "mae_vs_admm": 1.0356380432933467e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.993853569030762,
+    "detectability_vs_admm": 2.2271401064133267e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003831",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.993853569030762,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003831",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.1432134509086609,
+    "mae_vs_admm": 0.10105155408382416,
+    "output_peak": 0.4350951015949249,
+    "output_rms_db": -14.124131202697754,
+    "detectability_vs_admm": 46.107955111168415,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003831",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.12178885191679001,
+    "mae_vs_admm": 0.07736527174711227,
+    "output_peak": 0.847793698310852,
+    "output_rms_db": -10.6581449508667,
+    "detectability_vs_admm": 29.746416603097998,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003831",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03676626831293106,
+    "mae_vs_admm": 0.04770556092262268,
+    "output_peak": 0.676837682723999,
+    "output_rms_db": -11.46990966796875,
+    "detectability_vs_admm": 32.31986048089817,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003881",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.3349701517342547e-35,
+    "mae_vs_admm": 1.1168626558020791e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.523783683776855,
+    "detectability_vs_admm": 2.0747297596043803e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003881",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.523783683776855,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003881",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.14505621790885925,
+    "mae_vs_admm": 0.1074482649564743,
+    "output_peak": 0.43339625000953674,
+    "output_rms_db": -13.688041687011719,
+    "detectability_vs_admm": 47.06807680415899,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003881",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.14965051412582397,
+    "mae_vs_admm": 0.0914965271949768,
+    "output_peak": 0.8642786741256714,
+    "output_rms_db": -10.139307975769043,
+    "detectability_vs_admm": 30.711936251398868,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "003881",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.037404607981443405,
+    "mae_vs_admm": 0.05102972313761711,
+    "output_peak": 0.6861222982406616,
+    "output_rms_db": -11.01103401184082,
+    "detectability_vs_admm": 34.690345447868346,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "004472",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.805867133270635e-35,
+    "mae_vs_admm": 1.2297566535442285e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.513965606689453,
+    "detectability_vs_admm": 2.803511827576627e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "004472",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.513965606689453,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "004472",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.1467764526605606,
+    "mae_vs_admm": 0.10811634361743927,
+    "output_peak": 0.4318200945854187,
+    "output_rms_db": -13.709869384765625,
+    "detectability_vs_admm": 47.97457420806716,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "004472",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.21806395053863525,
+    "mae_vs_admm": 0.10644940286874771,
+    "output_peak": 1.1107863187789917,
+    "output_rms_db": -10.08445930480957,
+    "detectability_vs_admm": 39.505055748878604,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "004472",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03766310214996338,
+    "mae_vs_admm": 0.0508953221142292,
+    "output_peak": 0.7003744840621948,
+    "output_rms_db": -10.995443344116211,
+    "detectability_vs_admm": 34.43425579456361,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "004539",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.1386087852859026e-35,
+    "mae_vs_admm": 9.545447780185998e-21,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.42158031463623,
+    "detectability_vs_admm": 2.0902355153112887e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "004539",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.42158031463623,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "004539",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.1488199383020401,
+    "mae_vs_admm": 0.11031272262334824,
+    "output_peak": 0.4299596846103668,
+    "output_rms_db": -13.654986381530762,
+    "detectability_vs_admm": 49.064349287463756,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "004539",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.1865444779396057,
+    "mae_vs_admm": 0.10081551223993301,
+    "output_peak": 0.9637632369995117,
+    "output_rms_db": -10.06500244140625,
+    "detectability_vs_admm": 35.164244332036404,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "004539",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03850763663649559,
+    "mae_vs_admm": 0.05232008174061775,
+    "output_peak": 0.7006949186325073,
+    "output_rms_db": -10.927748680114746,
+    "detectability_vs_admm": 36.296218843409626,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005407",
+    "method": "input_reference",
+    "nmse_vs_admm": 1.689299459037011e-35,
+    "mae_vs_admm": 8.204257619668659e-21,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -10.312191009521484,
+    "detectability_vs_admm": 1.741464892649814e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005407",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -10.312191009521484,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005407",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.14576353132724762,
+    "mae_vs_admm": 0.09825699031352997,
+    "output_peak": 0.4327470362186432,
+    "output_rms_db": -14.489470481872559,
+    "detectability_vs_admm": 47.43960859459149,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005407",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.11930734664201736,
+    "mae_vs_admm": 0.07209990173578262,
+    "output_peak": 1.0071396827697754,
+    "output_rms_db": -10.955331802368164,
+    "detectability_vs_admm": 33.450496695791955,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005407",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03623216971755028,
+    "mae_vs_admm": 0.04539276286959648,
+    "output_peak": 0.6828271150588989,
+    "output_rms_db": -11.782814025878906,
+    "detectability_vs_admm": 29.99626408790891,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005622",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.149539218230182e-35,
+    "mae_vs_admm": 1.0653383509279753e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.718010902404785,
+    "detectability_vs_admm": 2.0691566714831767e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005622",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.718010902404785,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005622",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.14632971584796906,
+    "mae_vs_admm": 0.1055157408118248,
+    "output_peak": 0.4322285056114197,
+    "output_rms_db": -13.905704498291016,
+    "detectability_vs_admm": 47.73821175034265,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005622",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.11766830831766129,
+    "mae_vs_admm": 0.07718860357999802,
+    "output_peak": 0.9034592509269714,
+    "output_rms_db": -10.2236328125,
+    "detectability_vs_admm": 31.419574185635796,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005622",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.036806341260671616,
+    "mae_vs_admm": 0.04928767308592796,
+    "output_peak": 0.6973555684089661,
+    "output_rms_db": -11.197299003601074,
+    "detectability_vs_admm": 32.86492634477129,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005967",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.1801049412108164e-35,
+    "mae_vs_admm": 1.0989440173413626e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.509269714355469,
+    "detectability_vs_admm": 1.965228018700582e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005967",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.509269714355469,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005967",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.14795395731925964,
+    "mae_vs_admm": 0.10871805995702744,
+    "output_peak": 0.43074649572372437,
+    "output_rms_db": -13.726795196533203,
+    "detectability_vs_admm": 48.60080867958839,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005967",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.12080585956573486,
+    "mae_vs_admm": 0.0812627300620079,
+    "output_peak": 0.9413958787918091,
+    "output_rms_db": -9.963475227355957,
+    "detectability_vs_admm": 31.95961518718477,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "005967",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03715882822871208,
+    "mae_vs_admm": 0.0508161298930645,
+    "output_peak": 0.7021742463111877,
+    "output_rms_db": -10.99743938446045,
+    "detectability_vs_admm": 33.25689661187408,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "006382",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.8073758182809556e-35,
+    "mae_vs_admm": 1.2409147868638147e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.800989151000977,
+    "detectability_vs_admm": 2.4787020350612245e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "006382",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.800989151000977,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "006382",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.14785298705101013,
+    "mae_vs_admm": 0.10502514243125916,
+    "output_peak": 0.430838406085968,
+    "output_rms_db": -14.01666259765625,
+    "detectability_vs_admm": 48.54691136598783,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "006382",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.10697192698717117,
+    "mae_vs_admm": 0.07399844378232956,
+    "output_peak": 0.8940555453300476,
+    "output_rms_db": -10.264659881591797,
+    "detectability_vs_admm": 29.62815594336114,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "006382",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03638143092393875,
+    "mae_vs_admm": 0.048520565032958984,
+    "output_peak": 0.6765725016593933,
+    "output_rms_db": -11.275651931762695,
+    "detectability_vs_admm": 31.239020371890778,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "006655",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.4577675549430244e-35,
+    "mae_vs_admm": 1.1254937685061871e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.808623313903809,
+    "detectability_vs_admm": 2.3390001067800362e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "006655",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.808623313903809,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "006655",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.14772041141986847,
+    "mae_vs_admm": 0.1049756184220314,
+    "output_peak": 0.4309590756893158,
+    "output_rms_db": -14.02186393737793,
+    "detectability_vs_admm": 48.47623727543873,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "006655",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.2044210284948349,
+    "mae_vs_admm": 0.09940940886735916,
+    "output_peak": 1.0041307210922241,
+    "output_rms_db": -10.359378814697266,
+    "detectability_vs_admm": 38.18710913112901,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "006655",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.03721904754638672,
+    "mae_vs_admm": 0.048767443746328354,
+    "output_peak": 0.694303035736084,
+    "output_rms_db": -11.286134719848633,
+    "detectability_vs_admm": 31.89130153532858,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "007021",
+    "method": "input_reference",
+    "nmse_vs_admm": 2.3307074062899336e-35,
+    "mae_vs_admm": 1.1203413380187768e-20,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.43942642211914,
+    "detectability_vs_admm": 2.2714843360347013e-32,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "007021",
+    "method": "admm",
+    "nmse_vs_admm": 0.0,
+    "mae_vs_admm": 0.0,
+    "output_peak": 0.699999988079071,
+    "output_rms_db": -9.43942642211914,
+    "detectability_vs_admm": 0.0,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "007021",
+    "method": "dsp_fast",
+    "nmse_vs_admm": 0.14958129823207855,
+    "mae_vs_admm": 0.11034315824508667,
+    "output_peak": 0.42926979064941406,
+    "output_rms_db": -13.686779975891113,
+    "detectability_vs_admm": 49.47400707958806,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "007021",
+    "method": "waveunet_stage1",
+    "nmse_vs_admm": 0.18101374804973602,
+    "mae_vs_admm": 0.09813278913497925,
+    "output_peak": 1.0759527683258057,
+    "output_rms_db": -9.97092056274414,
+    "detectability_vs_admm": 34.82203585711681,
+    "peaq_odg_vs_admm": null
+  },
+  {
+    "track_id": "007021",
+    "method": "vae_plain_cyclical",
+    "nmse_vs_admm": 0.037944160401821136,
+    "mae_vs_admm": 0.05174343287944794,
+    "output_peak": 0.6980158686637878,
+    "output_rms_db": -10.935811042785645,
+    "detectability_vs_admm": 34.41572097110419,
+    "peaq_odg_vs_admm": null
+  }
+]

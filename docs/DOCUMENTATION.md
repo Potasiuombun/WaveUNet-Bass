@@ -1,54 +1,89 @@
 # Documentation Map
 
-This file organizes the project documentation and identifies which docs to use first.
+This file organises the project documentation and identifies which files to use first.
 
-## Canonical Docs (use these first)
+## Canonical Docs
 
-1. `README.md`
-- Primary entrypoint.
-- Current build, inspect, train, and overfit commands.
-- Current split/leakage guarantee.
+1. **`README.md`** — primary entrypoint: model families, dataset stats, Stage 1 / Stage 2
+   training commands, inference usage, plots and metric tables.
 
-2. `docs/guides/SERIALIZED_QUICK_REF.md`
-- Operational command reference for serialized datasets.
-- CLI flags and troubleshooting.
+2. **`docs/guides/SERIALIZED_QUICK_REF.md`** — CLI flags and troubleshooting for dataset
+   building and inspection.
 
-3. `configs/baseline.yaml`
-- Baseline experiment config.
+## Active Configs
 
-4. `configs/overfit_nmse.yaml`
-- Overfit-oriented config (batch size 64, NMSE-focused loss).
+| Config | Purpose |
+|--------|---------|
+| `configs/stage1_fma_curated_cli_norm.yaml` | WaveUNet Stage 1 |
+| `configs/stage1_vae_fma_curated_cli_norm.yaml` | VAE WaveUNet Stage 1 |
+| `configs/stage1_dsp_residual_fma_curated_cli_norm.yaml` | DSP + residual Stage 1 |
+| `configs/stage1_band_controller_fma_curated_cli_norm.yaml` | Band controller Stage 1 |
+| `configs/stage1_ddsp_controller_fma_curated_cli_norm.yaml` | DDSP controller Stage 1 |
 
-## Implementation-Focused Docs
+Stage 2 has no separate config file — all hyper-parameters are passed as CLI flags to
+`scripts/stage2_detectability_all_models.py`.
 
-- `docs/guides/SERIALIZED_DATASET_IMPL.md`
-- `docs/guides/SERIALIZED_DATASET_GUIDE.md`
-- `docs/guides/MIGRATION.md`
+## Active Scripts
 
-Use these when changing internals of dataset building or migrating older workflows.
+| Script | Purpose |
+|--------|---------|
+| `scripts/train.py` | Stage 1 WaveUNet trainer |
+| `scripts/train_vae.py` | Stage 1 VAE WaveUNet trainer |
+| `scripts/train_dsp_residual.py` | Stage 1 DSP + residual trainer |
+| `scripts/train_band_controller.py` | Stage 1 band controller trainer |
+| `scripts/train_ddsp_controller.py` | Stage 1 DDSP controller trainer |
+| `scripts/stage2_detectability_all_models.py` | Stage 2 fine-tuning (all 5 models) |
+| `scripts/infer_stage2_all_models.py` | Stage 2 inference + NMSE / detectability / PEAQ |
+| `scripts/check_contamination.py` | Cross-split leakage verification |
+| `scripts/setup_fma_baseline.py` | Build `stage1_fma_curated_cli_norm.pkl` from FMA Small |
 
-## Historical / Delivery Notes
+## Checkpoints
 
-These contain milestone snapshots and may be partially outdated:
+| Path | Contents |
+|------|---------|
+| `checkpoints/stage1_*/best.pth` | Stage 1 best checkpoints (5 models) |
+| `checkpoints/stage2_detectability_*/best_stage2.pth` | Stage 2 best checkpoints (5 models) |
 
-- `docs/archive/BASELINE_SUMMARY.md`
-- `docs/archive/DELIVERABLES.md`
-- `docs/archive/DELIVERY_CHECKLIST.md`
-- `docs/archive/REQUIREMENTS_FULFILLMENT.md`
-- `docs/archive/SERIALIZED_DATASET_DELIVERY.md`
-- `docs/archive/LEGACY_DATASET_SUPPORT.md`
-- `docs/archive/LEGACY_FORMAT_PATCH_SUMMARY.md`
+## Dataset
 
-Treat them as archival context, not source of truth for commands.
+| Path | Description |
+|------|-------------|
+| `datasets/stage1_fma_curated_cli_norm.pkl` | Curated FMA Small, 23,680 frames, 44100 Hz |
 
-## Current Source of Truth for Split Behavior
+Split by `track_id` (1200 train / 120 val / 160 test). Zero cross-split leakage
+verified by `scripts/check_contamination.py`.
 
-- Code: `src/data/splits.py` (`split_by_track`)
-- Guarantee: all frames from the same track remain in exactly one split.
-- Result: no cross-split leakage from overlapping neighboring frames.
+## Outputs and Plots
 
-## Current Source of Truth for Metadata Consistency Checks
+| Path | Contents |
+|------|---------|
+| `outputs/stage2_listening/` | Reference track 000890: WAVs + 3 comparison plots |
+| `outputs/stage2_listening_je_te/` | External track: WAVs + 3 comparison plots |
+| `logs/stage2_detectability_all_models_leaderboard.csv` | Stage 2 val leaderboard |
+| `logs/stage2_detectability_all_models_summary.json` | Stage 2 full training summary |
 
-- Build-time checks: `scripts/prepare_dataset.py`
-- Inspector checks: `scripts/inspect_dataset.py`
-- Data assembly: `src/data/serialized.py`
+## Key Source Modules
+
+| Module | Purpose |
+|--------|---------|
+| `src/models/` | All model architectures |
+| `src/dsp/` | `FixedBandSplitter`, `FastDSPBaseline`, DDSP control helpers |
+| `src/losses/perceptual.py` | `DetectabilityLossWrapper` |
+| `src/data/splits.py` | `split_by_track()` — deterministic, seed-fixed split |
+| `src/data/serialized.py` | Dataset loading |
+
+## Artifact Archive Layout
+
+- Active roots: `checkpoints/`, `logs/`, `outputs/`
+- Archived runs (pre-2026-04-08): `archives/past_until_2026-04-08/`
+- Archive pointer: `ACTIVE_ARTIFACTS_ARCHIVE_PATH.txt`
+
+## Historical / Delivery Notes (archival only)
+
+Located in `docs/archive/`. These are milestone snapshots from earlier stages of the
+project and may reference outdated paths or commands. Not a source of truth.
+
+## Implementation Guides
+
+Located in `docs/guides/`. Useful when modifying dataset internals or migrating old
+workflows: `SERIALIZED_DATASET_IMPL.md`, `SERIALIZED_DATASET_GUIDE.md`, `MIGRATION.md`.

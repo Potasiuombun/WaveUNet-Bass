@@ -1,0 +1,38 @@
+# source_config: configs/stage1_band_controller_fma_curated_cli_norm.yaml
+experiment_name: stage1_band_controller_fma_curated_cli_norm
+seed: 42
+data:
+  dataset_file: datasets/stage1_fma_curated_cli_norm.pkl
+  sample_rate: 44100
+dsp:
+  bands_hz:
+  - - 20
+    - 180
+  - - 180
+    - 1200
+  - - 1200
+    - 6000
+  - - 6000
+    - 22050
+  peak_limit: 0.99
+model:
+  hidden_channels: 16
+  min_gain_db: -6.0
+  max_gain_db: 6.0
+loss:
+  l1_weight: 1.0
+  nmse_weight: 1.0
+training:
+  split_train: train
+  split_val: val
+  batch_size: 16
+  num_workers: 2
+  num_epochs: 8
+  lr: 0.0001
+  weight_decay: 1.0e-05
+  gradient_clip: 1.0
+  early_stopping_patience: 4
+  device: cuda
+  output_root: outputs/stage1_band_controller
+  max_train_batches: 0
+  max_val_batches: 0

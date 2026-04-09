@@ -1,0 +1,120 @@
+{
+  "rows": [
+    {
+      "track_id": "018031",
+      "variant": "admm_processed",
+      "detectability_vs_reference_clipped": 3.6102761849972893
+    },
+    {
+      "track_id": "018031",
+      "variant": "admm_rescaled",
+      "detectability_vs_reference_clipped": 4542.869219250832
+    },
+    {
+      "track_id": "018032",
+      "variant": "admm_processed",
+      "detectability_vs_reference_clipped": 2.9195662935952087
+    },
+    {
+      "track_id": "018032",
+      "variant": "admm_rescaled",
+      "detectability_vs_reference_clipped": 12204.454314059816
+    },
+    {
+      "track_id": "018033",
+      "variant": "admm_processed",
+      "detectability_vs_reference_clipped": 0.7726285854451249
+    },
+    {
+      "track_id": "018033",
+      "variant": "admm_rescaled",
+      "detectability_vs_reference_clipped": 9906.386172427829
+    },
+    {
+      "track_id": "018034",
+      "variant": "admm_processed",
+      "detectability_vs_reference_clipped": 0.6387650321330021
+    },
+    {
+      "track_id": "018034",
+      "variant": "admm_rescaled",
+      "detectability_vs_reference_clipped": 9451.19997337891
+    },
+    {
+      "track_id": "018037",
+      "variant": "admm_processed",
+      "detectability_vs_reference_clipped": 0.9886527978689567
+    },
+    {
+      "track_id": "018037",
+      "variant": "admm_rescaled",
+      "detectability_vs_reference_clipped": 21628.870446970766
+    },
+    {
+      "track_id": "018038",
+      "variant": "admm_processed",
+      "detectability_vs_reference_clipped": 0.21641692412473026
+    },
+    {
+      "track_id": "018038",
+      "variant": "admm_rescaled",
+      "detectability_vs_reference_clipped": 49792.03476168849
+    },
+    {
+      "track_id": "018039",
+      "variant": "admm_processed",
+      "detectability_vs_reference_clipped": 0.7696150733174782
+    },
+    {
+      "track_id": "018039",
+      "variant": "admm_rescaled",
+      "detectability_vs_reference_clipped": 8677.069861194415
+    },
+    {
+      "track_id": "018043",
+      "variant": "admm_processed",
+      "detectability_vs_reference_clipped": 2.006827173470017
+    },
+    {
+      "track_id": "018043",
+      "variant": "admm_rescaled",
+      "detectability_vs_reference_clipped": 3121.5870331866113
+    },
+    {
+      "track_id": "018044",
+      "variant": "admm_processed",
+      "detectability_vs_reference_clipped": 2.829401620924089
+    },
+    {
+      "track_id": "018044",
+      "variant": "admm_rescaled",
+      "detectability_vs_reference_clipped": 9540.42595297451
+    },
+    {
+      "track_id": "018112",
+      "variant": "admm_processed",
+      "detectability_vs_reference_clipped": 7.259702664632925
+    },
+    {
+      "track_id": "018112",
+      "variant": "admm_rescaled",
+      "detectability_vs_reference_clipped": 3422.344284641349
+    }
+  ],
+  "aggregate": {
+    "admm_processed": {
+      "mean": 2.201185235050882,
+      "median": 1.4977399856694869,
+      "min": 0.21641692412473026,
+      "max": 7.259702664632925,
+      "num_tracks": 10
+    },
+    "admm_rescaled": {
+      "mean": 13228.724201977351,
+      "median": 9495.812963176711,
+      "min": 3121.5870331866113,
+      "max": 49792.03476168849,
+      "num_tracks": 10
+    }
+  }
+}

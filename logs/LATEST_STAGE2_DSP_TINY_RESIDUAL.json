@@ -1,0 +1,12 @@
+{
+  "best_epoch": 1,
+  "best_val_total": 21.816438897445078,
+  "created_at": "2026-04-09T10:35:41.427908Z",
+  "last_val_detectability": 24.133685421719278,
+  "last_val_nmse": 0.12340243035287131,
+  "metrics_csv": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/logs/stage2_detectability_dsp_tiny_residual/metrics.csv",
+  "model": "dsp_tiny_residual",
+  "stage1_checkpoint": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage1_dsp_residual/stage1_dsp_residual_fma_curated_cli_norm_20260409T095748Z/checkpoints/best.pth",
+  "stage2_best_checkpoint": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/stage2_detectability_dsp_tiny_residual/best_stage2.pth",
+  "stage2_latest_checkpoint": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/checkpoints/stage2_detectability_dsp_tiny_residual/latest_stage2.pth"
+}

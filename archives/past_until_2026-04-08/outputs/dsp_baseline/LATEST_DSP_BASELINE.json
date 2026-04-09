@@ -1,0 +1,6 @@
+{
+  "created_at": "2026-04-08T10:03:48.282290Z",
+  "metrics_csv": "outputs/dsp_baseline/dsp_fast_baseline_val_20260408T100347Z/metrics.csv",
+  "run_name": "dsp_fast_baseline_val_20260408T100347Z",
+  "summary": "outputs/dsp_baseline/dsp_fast_baseline_val_20260408T100347Z/summary.json"
+}

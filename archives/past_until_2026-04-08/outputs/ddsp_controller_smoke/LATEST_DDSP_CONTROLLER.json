@@ -1,0 +1,10 @@
+{
+  "checkpoint_best": "outputs/ddsp_controller_smoke/ddsp_controller_smoke_20260408T141832Z/checkpoints/best.pth",
+  "checkpoint_latest": "outputs/ddsp_controller_smoke/ddsp_controller_smoke_20260408T141832Z/checkpoints/latest.pth",
+  "config_path": "configs/ddsp_controller_smoke.yaml",
+  "created_at": "2026-04-08T14:18:34.028167Z",
+  "dataset_file": "/mnt/f/9thSemester/WaveUNet-Bass/WaveUNet-Bass/Data/df6.pkl",
+  "device": "cuda",
+  "run_dir": "outputs/ddsp_controller_smoke/ddsp_controller_smoke_20260408T141832Z",
+  "run_name": "ddsp_controller_smoke_20260408T141832Z"
+}

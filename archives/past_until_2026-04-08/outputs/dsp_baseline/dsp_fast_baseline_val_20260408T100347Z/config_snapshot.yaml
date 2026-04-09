@@ -1,0 +1,25 @@
+# source_config: configs/dsp_baseline.yaml
+experiment_name: dsp_fast_baseline
+seed: 42
+data:
+  dataset_file: /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl
+dsp:
+  target_level_db: -14.0
+  max_gain_db: 12.0
+  min_gain_db: -12.0
+  peak_limit: 0.99
+  smoothing:
+    enabled: true
+    alpha: 0.9
+  compression:
+    enabled: false
+    threshold_db: -6.0
+    ratio: 2.0
+run:
+  split: val
+  batch_size: 64
+  num_workers: 2
+  device: cpu
+  output_root: outputs/dsp_baseline
+  save_outputs: true
+  save_limit_frames: 5000

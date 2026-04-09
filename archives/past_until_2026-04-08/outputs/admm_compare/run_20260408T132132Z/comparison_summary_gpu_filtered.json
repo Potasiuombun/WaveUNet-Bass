@@ -1,0 +1,36 @@
+{
+  "run_dir": "outputs/admm_compare/run_20260408T132132Z",
+  "num_tracks": 25,
+  "methods": [
+    {
+      "method": "admm",
+      "avg_nmse_vs_admm": 0.0,
+      "avg_mae_vs_admm": 0.0,
+      "avg_detectability_vs_admm": 0.0
+    },
+    {
+      "method": "input_reference",
+      "avg_nmse_vs_admm": 0.00026992790721118784,
+      "avg_mae_vs_admm": 0.000367586613574489,
+      "avg_detectability_vs_admm": 0.2639532978908759
+    },
+    {
+      "method": "vae_plain_cyclical",
+      "avg_nmse_vs_admm": 0.03680064097046848,
+      "avg_mae_vs_admm": 0.049174698144197414,
+      "avg_detectability_vs_admm": 32.75255318020497
+    },
+    {
+      "method": "waveunet_stage1",
+      "avg_nmse_vs_admm": 0.15263066500425335,
+      "avg_mae_vs_admm": 0.0875598788261413,
+      "avg_detectability_vs_admm": 33.22095784314361
+    },
+    {
+      "method": "dsp_fast",
+      "avg_nmse_vs_admm": 0.14059179961681362,
+      "avg_mae_vs_admm": 0.10324956923723218,
+      "avg_detectability_vs_admm": 44.551893820912646
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+experiment_name: band_controller
+seed: 42
+
+data:
+  dataset_file: /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl
+  sample_rate: 44100
+
+dsp:
+  bands_hz:
+    - [20, 180]
+    - [180, 1200]
+    - [1200, 6000]
+    - [6000, 22050]
+  peak_limit: 0.99
+
+model:
+  hidden_channels: 16
+  min_gain_db: -6.0
+  max_gain_db: 6.0
+
+loss:
+  l1_weight: 1.0
+  nmse_weight: 1.0
+
+training:
+  split_train: train
+  split_val: val
+  batch_size: 16
+  num_workers: 2
+  num_epochs: 30
+  lr: 1.0e-4
+  weight_decay: 1.0e-5
+  gradient_clip: 1.0
+  early_stopping_patience: 8
+  device: cpu
+  output_root: outputs/band_controller

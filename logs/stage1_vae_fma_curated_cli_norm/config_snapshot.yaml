@@ -1,0 +1,62 @@
+# source_config: configs/stage1_vae_fma_curated_cli_norm.yaml
+experiment_name: stage1_vae_fma_curated_cli_norm
+seed: 42
+data:
+  source_type: serialized
+  dataset_file: datasets/stage1_fma_curated_cli_norm.pkl
+  frame_size: 1024
+  sr: 44100
+  legacy_val_ratio: 0.15
+model:
+  name: vae_waveunet
+  type: vae_waveunet
+  depth: 5
+  base_channels: 32
+  kernel_size: 9
+  latent_channels: 64
+  output_head: identity
+  activation: leaky_relu
+  output_activation: null
+loss:
+  alpha_reconstruction: 1.0
+  gamma_mrstft: 1.0
+  l1_weight: 1.0
+  nmse_weight: 1.0
+  beta_kl: 0.0001
+  beta_kl_start: 0.0
+  beta_kl_end: 0.0001
+  kl_warmup_epochs: 4
+  mrstft_fft_sizes:
+  - 1024
+  - 512
+  - 256
+  mrstft_hop_sizes:
+  - 512
+  - 256
+  - 128
+training:
+  batch_size: 16
+  num_workers: 2
+  num_epochs: 8
+  optimizer: adamw
+  lr: 0.0001
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  early_stopping_patience: 4
+  checkpoint_dir: checkpoints/stage1_vae_fma_curated_cli_norm
+  legacy_num_workers: 0
+  warm_start_checkpoint: null
+logging:
+  csv_log: logs/stage1_vae_fma_curated_cli_norm_metrics.csv
+  json_log: logs/stage1_vae_fma_curated_cli_norm_metrics.jsonl
+kl_schedule:
+  type: linear_warmup
+  beta_start: 0.0
+  beta_max: 0.0001
+  warmup_epochs: 0
+  num_cycles: 4
+  cycle_ratio: 0.5
+kl_free_bits:
+  enabled: false
+  value: 0.0
+  mode: per_dim

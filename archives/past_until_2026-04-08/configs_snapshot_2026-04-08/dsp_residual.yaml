@@ -1,0 +1,42 @@
+experiment_name: dsp_residual
+seed: 42
+
+data:
+  dataset_file: /mnt/f/fma_small/datasets/waveunet_baseline_small.pkl
+
+dsp:
+  target_level_db: -14.0
+  max_gain_db: 12.0
+  min_gain_db: -12.0
+  peak_limit: 0.99
+  smoothing:
+    enabled: true
+    alpha: 0.9
+  compression:
+    enabled: false
+    threshold_db: -6.0
+    ratio: 2.0
+
+model:
+  hidden_channels: 16
+  num_layers: 4
+  kernel_size: 7
+  activation: leaky_relu
+  max_residual: 0.2
+
+loss:
+  l1_weight: 1.0
+  nmse_weight: 1.0
+
+training:
+  split_train: train
+  split_val: val
+  batch_size: 16
+  num_workers: 2
+  num_epochs: 30
+  lr: 1.0e-4
+  weight_decay: 1.0e-5
+  gradient_clip: 1.0
+  early_stopping_patience: 8
+  device: cpu
+  output_root: outputs/dsp_residual

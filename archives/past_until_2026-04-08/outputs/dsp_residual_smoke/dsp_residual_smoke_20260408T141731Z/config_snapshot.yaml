@@ -1,0 +1,40 @@
+# source_config: configs/dsp_residual_smoke.yaml
+experiment_name: dsp_residual_smoke
+seed: 42
+data:
+  dataset_file: /mnt/f/9thSemester/WaveUNet-Bass/WaveUNet-Bass/Data/df6.pkl
+dsp:
+  target_level_db: -14.0
+  max_gain_db: 12.0
+  min_gain_db: -12.0
+  peak_limit: 0.99
+  smoothing:
+    enabled: true
+    alpha: 0.9
+  compression:
+    enabled: false
+    threshold_db: -6.0
+    ratio: 2.0
+model:
+  hidden_channels: 8
+  num_layers: 3
+  kernel_size: 7
+  activation: leaky_relu
+  max_residual: 0.2
+loss:
+  l1_weight: 1.0
+  nmse_weight: 1.0
+training:
+  split_train: train
+  split_val: val
+  batch_size: 2
+  num_workers: 0
+  num_epochs: 1
+  max_train_batches: 1
+  max_val_batches: 1
+  lr: 0.0001
+  weight_decay: 1.0e-05
+  gradient_clip: 1.0
+  early_stopping_patience: 2
+  device: cuda
+  output_root: outputs/dsp_residual_smoke

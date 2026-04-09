@@ -1,0 +1,50 @@
+{
+  "run_dir": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/current_eval/run_20260408T192647Z",
+  "num_tracks": 25,
+  "listen_tracks": [
+    "000148",
+    "000197",
+    "000211",
+    "000438",
+    "000643"
+  ],
+  "detectability_available": true,
+  "peaq_source": "/home/tudor/Documents/MasterThesis/peaq-python-simple-main/AFsp-v9r0/bin/PQevalAudio",
+  "methods": {
+    "admm_target": {
+      "avg_detectability_vs_reference": 0.2699746726785204,
+      "avg_detectability_vs_admm": 0.0,
+      "avg_nmse_vs_reference": 0.00026835322263650595,
+      "avg_nmse_vs_admm": 0.0,
+      "avg_peaq_odg_vs_reference": 0.14056000000000002
+    },
+    "b1_band_controller": {
+      "avg_detectability_vs_reference": 5.081482420833427,
+      "avg_detectability_vs_admm": 5.257839562636523,
+      "avg_nmse_vs_reference": 0.07959147885441781,
+      "avg_nmse_vs_admm": 0.07924347966909409,
+      "avg_peaq_odg_vs_reference": -0.50192
+    },
+    "d2_residual": {
+      "avg_detectability_vs_reference": 32.5100136397315,
+      "avg_detectability_vs_admm": 31.498507256587445,
+      "avg_nmse_vs_reference": 0.11983779907226562,
+      "avg_nmse_vs_admm": 0.11881574511528015,
+      "avg_peaq_odg_vs_reference": -1.7678399999999999
+    },
+    "dsp_fast": {
+      "avg_detectability_vs_reference": 50.630605559290196,
+      "avg_detectability_vs_admm": 49.706606264994804,
+      "avg_nmse_vs_reference": 0.1511707192659378,
+      "avg_nmse_vs_admm": 0.1501344758272171,
+      "avg_peaq_odg_vs_reference": -0.9268400000000001
+    },
+    "input_reference": {
+      "avg_detectability_vs_reference": 0.0,
+      "avg_detectability_vs_admm": 0.26395329789087596,
+      "avg_nmse_vs_reference": 0.0,
+      "avg_nmse_vs_admm": 0.00026992790721124037,
+      "avg_peaq_odg_vs_reference": 0.20743999999999999
+    }
+  }
+}

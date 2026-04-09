@@ -1,0 +1,23 @@
+{
+  "columns": [
+    "input",
+    "target",
+    "track_id",
+    "frame_index",
+    "source_input_path",
+    "source_target_path",
+    "split",
+    "normalization_mode"
+  ],
+  "created_at": "2026-04-09T09:06:39.933338Z",
+  "dataset_path": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/datasets/stage1_cli_new_rowsplit.pkl",
+  "format": "rich",
+  "num_frames": 5157,
+  "num_unique_tracks": 1,
+  "split_counts": {
+    "test": 517,
+    "train": 4125,
+    "val": 515
+  },
+  "split_type": "row-level (deterministic)"
+}

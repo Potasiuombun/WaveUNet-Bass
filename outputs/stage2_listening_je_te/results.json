@@ -1,0 +1,49 @@
+{
+  "timestamp": "2026-04-09T11:11:27.472067+00:00",
+  "audio": "/home/tudor/Documents/MasterThesis/Je te laisserai des mots.wav",
+  "sample_rate": 44100,
+  "duration_sec": 160.8910657596372,
+  "input_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening_je_te/input_normalized.wav",
+  "models": {
+    "waveunet": {
+      "output_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening_je_te/waveunet_output.wav",
+      "error_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening_je_te/waveunet_error.wav",
+      "nmse": 5.012583642383106e-05,
+      "mae": 0.000676969182677567,
+      "detectability": 0.007816257284953767,
+      "peaq_odg": 0.134
+    },
+    "vae_waveunet": {
+      "output_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening_je_te/vae_waveunet_output.wav",
+      "error_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening_je_te/vae_waveunet_error.wav",
+      "nmse": 1.2441660146578215e-05,
+      "mae": 0.0004647757741622627,
+      "detectability": 0.0024204371668919973,
+      "peaq_odg": 0.138
+    },
+    "dsp_tiny_residual": {
+      "output_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening_je_te/dsp_tiny_residual_output.wav",
+      "error_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening_je_te/dsp_tiny_residual_error.wav",
+      "nmse": 0.18068000674247742,
+      "mae": 0.052513763308525085,
+      "detectability": 243.52978483875216,
+      "peaq_odg": -1.279
+    },
+    "band_controller": {
+      "output_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening_je_te/band_controller_output.wav",
+      "error_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening_je_te/band_controller_error.wav",
+      "nmse": 0.0027064511086791754,
+      "mae": 0.005211998242884874,
+      "detectability": 1.3205501309755208,
+      "peaq_odg": 0.134
+    },
+    "ddsp_controller": {
+      "output_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening_je_te/ddsp_controller_output.wav",
+      "error_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening_je_te/ddsp_controller_error.wav",
+      "nmse": 0.00270196539349854,
+      "mae": 0.0052076238207519054,
+      "detectability": 1.3221881522488246,
+      "peaq_odg": 0.134
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "detectability_enabled": true,
+  "detectability_available": true,
+  "peaq_requested": false,
+  "peaq_available": false,
+  "methods": {
+    "admm": {
+      "avg_nmse_vs_admm": 0.0,
+      "avg_mae_vs_admm": 0.0,
+      "avg_output_peak": 0.699999988079071,
+      "avg_output_rms_db": -9.747328910827637,
+      "avg_detectability_vs_admm": 0.0,
+      "num_samples": 25.0
+    },
+    "dsp_fast": {
+      "avg_nmse_vs_admm": 0.14071403205394745,
+      "avg_mae_vs_admm": 0.10315378367900849,
+      "avg_output_peak": 0.4374938571453095,
+      "avg_output_rms_db": -13.830761337280274,
+      "avg_detectability_vs_admm": 44.89745689625991,
+      "num_samples": 25.0
+    },
+    "input_reference": {
+      "avg_nmse_vs_admm": 2.3824657943493629e-35,
+      "avg_mae_vs_admm": 1.0916370980133298e-20,
+      "avg_output_peak": 0.699999988079071,
+      "avg_output_rms_db": -9.747328910827637,
+      "avg_detectability_vs_admm": 2.280155422137551e-32,
+      "num_samples": 25.0
+    },
+    "vae_plain_cyclical": {
+      "avg_nmse_vs_admm": 0.03717730835080147,
+      "avg_mae_vs_admm": 0.049360779374837876,
+      "avg_output_peak": 0.6963938999176026,
+      "avg_output_rms_db": -11.230868797302247,
+      "avg_detectability_vs_admm": 33.04090440581484,
+      "num_samples": 25.0
+    },
+    "waveunet_stage1": {
+      "avg_nmse_vs_admm": 0.14923448950052262,
+      "avg_mae_vs_admm": 0.08653805911540985,
+      "avg_output_peak": 0.9550361776351929,
+      "avg_output_rms_db": -10.325544357299805,
+      "avg_detectability_vs_admm": 32.94382895340826,
+      "num_samples": 25.0
+    }
+  }
+}

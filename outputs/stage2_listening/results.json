@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-04-09T10:53:05.253698+00:00",
+  "audio": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/../baseline_current/input_wav/000890.wav",
+  "duration_sec": 29.976625,
+  "input_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening/input_normalized.wav",
+  "models": {
+    "waveunet": {
+      "output_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening/waveunet_output.wav",
+      "error_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening/waveunet_error.wav",
+      "nmse": 0.0005274597206152976,
+      "mae": 0.0009453121456317604,
+      "detectability": -1.0,
+      "peaq": NaN
+    },
+    "vae_waveunet": {
+      "output_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening/vae_waveunet_output.wav",
+      "error_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening/vae_waveunet_error.wav",
+      "nmse": 0.0005016603390686214,
+      "mae": 0.0005738413310609758,
+      "detectability": -1.0,
+      "peaq": NaN
+    },
+    "dsp_tiny_residual": {
+      "output_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening/dsp_tiny_residual_output.wav",
+      "error_wav": "/home/tudor/Documents/MasterThesis/WaveUNet-Bass/outputs/stage2_listening/dsp_tiny_residual_error.wav",
+      "nmse": 3.132248878479004,
+      "mae": 0.35008499026298523,
+      "detectability": -1.0,
+      "peaq": NaN
+    },
+    "band_controller": {
+      "error": "operands could not be broadcast together with shapes (4,) (1024,) "
+    },
+    "ddsp_controller": {
+      "error": "operands could not be broadcast together with shapes (4,) (1024,) "
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "checkpoint_best": "outputs/stage1_band_controller/stage1_band_controller_fma_curated_cli_norm_20260409T100132Z/checkpoints/best.pth",
+  "checkpoint_latest": "outputs/stage1_band_controller/stage1_band_controller_fma_curated_cli_norm_20260409T100132Z/checkpoints/latest.pth",
+  "config_path": "configs/stage1_band_controller_fma_curated_cli_norm.yaml",
+  "created_at": "2026-04-09T10:04:34.309443Z",
+  "dataset_file": "datasets/stage1_fma_curated_cli_norm.pkl",
+  "device": "cuda",
+  "run_dir": "outputs/stage1_band_controller/stage1_band_controller_fma_curated_cli_norm_20260409T100132Z",
+  "run_name": "stage1_band_controller_fma_curated_cli_norm_20260409T100132Z"
+}

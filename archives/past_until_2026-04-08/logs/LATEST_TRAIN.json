@@ -1,0 +1,8 @@
+{
+  "config_snapshot": "logs/baseline_stage1_small/config_snapshot.yaml",
+  "created_at": "2026-04-04T19:51:43.382509Z",
+  "csv_log": "logs/baseline_stage1_small_metrics.csv",
+  "experiment_name": "baseline_stage1_small",
+  "json_log": "logs/baseline_stage1_small_metrics.jsonl",
+  "run_summary": "logs/baseline_stage1_small/run_summary.json"
+}
