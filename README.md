@@ -179,7 +179,7 @@ binary (automatically resampled to 48 kHz). No extra installation needed.
 
 ---
 
-## Split and Leakage Guarantee
+## Zero Split and Leakage
 
 Splitting is performed by `src/data/splits.py` → `split_by_track()`:
 
